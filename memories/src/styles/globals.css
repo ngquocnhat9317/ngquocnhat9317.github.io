@@ -4,6 +4,7 @@
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --background-pastel: 135deg, rgba(192,241,255,1) 0%, rgba(236,249,224,1) 50%, rgba(255,222,201,1) 100%;
 }
 
 * {
@@ -14,6 +15,17 @@
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  background: linear-gradient(135deg, rgba(192,241,255,1) 0%, rgba(236,249,224,1) 50%, rgba(255,222,201,1) 100%);
+}
+
+#__next,
+main {
+  width: 100%;
+  height: 100%;
 }
