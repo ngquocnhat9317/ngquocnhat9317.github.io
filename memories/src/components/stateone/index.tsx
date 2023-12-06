@@ -20,7 +20,7 @@ function StateOne(): JSX.Element {
   }, [isFirst, nextAble, dispatch]);
 
   useEffect(() => {
-    let timeout: any = null;
+    let timeout: any = null; // eslint-disable-line @typescript-eslint/no-explicit-any
     if (!isFirst) timeout = setTimeout(() => setNextAble(true), 3000);
     return () => timeout && clearTimeout(timeout);
   }, [isFirst]);
@@ -32,26 +32,26 @@ function StateOne(): JSX.Element {
           DancingText.className,
           styles.home_text,
           styles.home_text_first,
-          isFirst && styles.active
+          isFirst && styles.active,
         )}
       >
         Xin chào cục ngáo của tui.
       </h1>
       <h1
-          className={_clx(
-            DancingText.className,
-            styles.home_text,
-            styles.home_text_second,
-            !isFirst && styles.active
-          )}
-        >
+        className={_clx(
+          DancingText.className,
+          styles.home_text,
+          styles.home_text_second,
+          !isFirst && styles.active,
+        )}
+      >
           Em đã sẳn sàng khám phá chưa nào?
-        </h1>
+      </h1>
       <p
         className={_clx(
           CrimsonText.className,
           styles.continue_text,
-          nextAble && styles.active
+          nextAble && styles.active,
         )}
       >
         Nhấn bất kỳ để đi đến trang tiếp nhé

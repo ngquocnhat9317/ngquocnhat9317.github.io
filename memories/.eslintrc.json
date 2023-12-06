@@ -8,6 +8,11 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended"
   ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -19,14 +24,17 @@
     "indent": ["warn", 2, { "SwitchCase": 1, "MemberExpression": 1 }],
     "comma-style": ["warn", "last"],
     "comma-dangle": ["warn", "always-multiline"],
-    "quotes": ["warn", "single"],
+    "quotes": ["warn", "double"],
     "jsx-quotes": ["warn", "prefer-single"],
     "camelcase": "off",
     "no-trailing-spaces": "warn",
     "space-before-blocks": "warn",
     "space-in-parens": "warn",
-    "space-before-function-paren": ["warn", { "anonymous": "always", "named": "never", "asyncArrow": "always" }],
-    "object-curly-spacing": "warn",
+    "space-before-function-paren": [
+      "warn",
+      { "anonymous": "always", "named": "never", "asyncArrow": "always" }
+    ],
+    "object-curly-spacing": ["warn", "always"],
     "no-multiple-empty-lines": ["warn", { "max": 2, "maxEOF": 0 }],
     "no-multi-spaces": "warn",
     "multiline-ternary": "off",

@@ -1,4 +1,4 @@
-import React, {memo} from 'react';
+import React from "react";
 
 function StateTwo() {
   return <h1>state two</h1>;
