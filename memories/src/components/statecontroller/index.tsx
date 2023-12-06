@@ -1,8 +1,8 @@
-import React, { Suspense, lazy, useMemo } from "react";
+import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
 
-import StateOne from '@/components/stateone';
-import StateTwo from '@/components/statetwo';
+import StateOne from "@/components/stateone";
+import StateTwo from "@/components/statetwo";
 
 import styles from "@/styles/stateController.module.css";
 

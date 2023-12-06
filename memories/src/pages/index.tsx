@@ -1,7 +1,7 @@
-import React from 'react';
-import Head from 'next/head';
+import React from "react";
+import Head from "next/head";
 
-import StateController from '@/components/statecontroller';
+import StateController from "@/components/statecontroller";
 
 export default function Home() {
   return (
