@@ -5,11 +5,14 @@ import { _clx } from "@/utils/common";
 import { setState } from "@/utils/reduxConfig";
 import styles from "@/styles/stateOne.module.scss";
 import { CrimsonText, DancingText } from "@/fonts/configFont";
+import useIsIOSDevice from "@/hooks/isIOSDevice";
 
 function StateOne(): JSX.Element {
   const [isFirst, setIsFirst] = useState<boolean>(true);
   const [nextAble, setNextAble] = useState<boolean>(false);
   const dispatch = useDispatch();
+
+  const { isIPhone, isIPad } = useIsIOSDevice();
 
   const clickHandle = useCallback(() => {
     if (isFirst) {
@@ -26,7 +29,7 @@ function StateOne(): JSX.Element {
   }, [isFirst]);
 
   return (
-    <div className={_clx(styles.wrapper_content)} onClick={clickHandle}>
+    <div className={_clx(styles.wrapper_content, (isIPhone || isIPad) && styles.is_os)} onClick={clickHandle}>
       <h1
         className={_clx(
           DancingText.className,
@@ -36,6 +39,7 @@ function StateOne(): JSX.Element {
         )}
       >
         Xin chào cục ngáo của tui.
+        {(isIPhone || isIPad) && <span>ispad</span>}
       </h1>
       <h1
         className={_clx(

@@ -1,10 +1,10 @@
 import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
 
-import StateOne from "@/components/stateone";
-import StateTwo from "@/components/statetwo";
+import StateOne from "@/components/stateOne";
+import StateTwo from "@/components/stateTwo";
 
-import styles from "@/styles/stateController.module.css";
+import styles from "@/styles/stateController.module.scss";
 
 function StateController() {
   const value = useSelector(({ state }) => state.value);
