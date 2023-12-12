@@ -1,4 +1,4 @@
-@import './_variables.scss';
+@use './_variables.scss' as v;
 
 .wrapper_content {
   height: calc(100% - 10px);
@@ -23,29 +23,8 @@
   transform: translate(-50%, -50%);
   transition-property: opacity;
 
-  @include mobile {
+  @include v.mobile {
     font-size: 50px;
-  }
-
-  &_first {
-    opacity: 0;
-    transition-duration: 2s;
-    transition-timing-function: linear;
-
-    &.active {
-      opacity: 1;
-    }
-  }
-
-  &_second {
-    opacity: 0;
-    transition-delay: 1.5s;
-    transition-duration: 2s;
-    transition-timing-function: linear;
-
-    &.active {
-      opacity: 1;
-    }
   }
 }
 
@@ -56,14 +35,8 @@
   bottom: 30px;
   transform: translateX(-50%);
   color: #496252;
-  opacity: 0;
-  transition: opacity 1s linear;
 
-  @include mobile {
+  @include v.mobile {
     font-size: 16px;
-  }
-
-  &.active {
-    opacity: 1;
   }
 }
