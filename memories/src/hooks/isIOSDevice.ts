@@ -4,6 +4,7 @@ type IosCheck = {
   isIPhone: boolean;
   isIPad: boolean;
   isMac: boolean;
+  isSafari: boolean;
 };
 
 const useIsIOSDevice = () => {
@@ -11,6 +12,7 @@ const useIsIOSDevice = () => {
     isIPhone: false,
     isIPad: false,
     isMac: false,
+    isSafari: false,
   });
 
   useEffect(() => {
@@ -19,8 +21,8 @@ const useIsIOSDevice = () => {
       isIPhone: userAgent.includes("iPhone"),
       isIPad: userAgent.includes("iPad"),
       isMac: userAgent.includes("Mac"),
+      isSafari: userAgent.includes("Safari"),
     });
-    console.log(userAgent);
   }, []);
 
   return iosCheck;
