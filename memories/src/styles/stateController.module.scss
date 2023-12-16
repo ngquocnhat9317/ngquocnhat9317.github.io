@@ -1,6 +1,22 @@
 .main {
-  display: flex;
-  justify-content: center;
-  vertical-align: middle;
-  align-items: center;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.content {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  &_one {
+    top: 0%
+  }
+  &_two {
+    top: 100%
+  }
+  &_three {
+    top: 200%
+  }
 }

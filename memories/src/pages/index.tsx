@@ -1,9 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 
-import StateController from "@/components/stateController";
+const StateController = dynamic(() => import("@/components/stateController"), {
+  loading: () => <></>,
+});
+
+import { setLocalStage } from "@/utils/reduxConfig";
+import { getLocalStorage } from "@/utils/common";
 
 export default function Home() {
+  const [localStageIndex, setLocalStageIndex] = useState<number>(0);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (window !== undefined) {
+      const store = getLocalStorage("STAGE");
+      if (store) {
+        const stage: number = getLocalStorage("STAGE")["stage"];
+        setLocalStageIndex(stage);
+        dispatch(setLocalStage(stage));
+      } else {
+        setLocalStageIndex(1);
+        dispatch(setLocalStage(1));
+      }
+    }
+  }, [dispatch]);
+
   return (
     <>
       <Head>
@@ -12,7 +36,7 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <StateController />
+      {localStageIndex !== 0 ? <StateController /> : null}
     </>
   );
 }
