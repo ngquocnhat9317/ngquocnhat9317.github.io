@@ -1,30 +1,48 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { setLocalStorage } from "./common";
 
-export type State = {
-  value: number;
+export type Stage = {
+  stage: number;
+  localStage: number
 };
 
-const stateSlide = createSlice({
+const stageSlide = createSlice({
   name: "state",
   initialState: {
-    value: 1,
-  } as State,
+    stage: 1,
+    localStage: 0,
+  } as Stage,
   reducers: {
-    setState: (state, action) => {
-      state.value = action.payload as number;
+    setStage: (state, action) => {
+      setLocalStorage("STAGE", { "stage": action.payload as number });
+      return { ...state, stage: action.payload as number };
     },
-    backState: (state) => {
-      if (state.value > 1) {
-        state.value -= 1;
+    backStage: (state) => {
+      if (state.stage > 1) {
+        setLocalStorage("STAGE", { "stage": state.stage - 1 });
+        return { ...state, stage: state.stage - 1 };
       }
+    },
+    nextStage: (state) => {
+      if (state.stage < 3) {
+        setLocalStorage("STAGE", { "stage": state.stage + 1 });
+        return { ...state, stage: state.stage + 1 };
+      }
+    },
+    setLocalStage: (state, action) => {
+      return { ...state, localStage: action.payload as number };
     },
   },
 });
 
-export const { setState, backState } = stateSlide.actions;
+export const { setStage, backStage, setLocalStage } = stageSlide.actions;
+
+export type ReducerStore = {
+  stage: Stage
+}
 
 export default configureStore({
   reducer: {
-    state: stateSlide.reducer,
+    stage: stageSlide.reducer,
   },
 });

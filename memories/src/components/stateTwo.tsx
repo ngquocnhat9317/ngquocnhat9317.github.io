@@ -1,7 +1,11 @@
 import React from "react";
 
-function StateTwo() {
-  return <h1>state two</h1>;
+type Props = {
+  changePositionHandle: (_value: number) => void;
+};
+
+function StateTwo({ changePositionHandle }: Readonly<Props>) {
+  return <h1 onClick={() => changePositionHandle(1)}>state two</h1>;
 }
 
 export default StateTwo;

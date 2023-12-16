@@ -23,6 +23,7 @@
   "plugins": ["@typescript-eslint", "react"],
   "rules": {
     "semi": ["warn", "always"],
+    "no-console": ["error", { "allow": ["warn", "error"] }],
     "indent": ["warn", 2, { "SwitchCase": 1, "MemberExpression": 1 }],
     "comma-style": ["warn", "last"],
     "comma-dangle": ["warn", "always-multiline"],
@@ -40,13 +41,20 @@
     "no-multiple-empty-lines": ["warn", { "max": 2, "maxEOF": 0 }],
     "no-multi-spaces": "warn",
     "multiline-ternary": "off",
-    "no-irregular-whitespace": "off",
-    "no-case-declarations": "off",
-    "prefer-const": "warn",
-    "no-unused-vars": "warn",
+    "no-irregular-whitespace": "warn",
+    "no-case-declarations": "warn",
+    "prefer-const": "error",
+    "no-unused-vars": ["warn", {"argsIgnorePattern": "^_"}],
+    "@typescript-eslint/no-unused-vars": "warn",
     "default-case-last": "off",
     "spaced-comment": "warn",
+    "no-duplicate-imports": "warn",
+    "no-template-curly-in-string": "error",
     "react/prop-types": "off",
-    "react/jsx-key": "warn"
+    "react/jsx-key": "warn",
+    "react/self-closing-comp": ["error", {
+      "component": true,
+      "html": true
+    }]
   }
 }

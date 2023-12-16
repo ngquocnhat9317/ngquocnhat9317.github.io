@@ -1,8 +1,8 @@
 @use './_variables.scss' as v;
 
 .wrapper_content {
-  height: calc(100% - 10px);
-  width: calc(100% - 10px);
+  height: 100%;
+  width: 100%;
   position: relative;
 
   &.is_os .continue_text {
@@ -11,10 +11,8 @@
 }
 
 .home_text {
-  // background: linear-gradient(315deg, rgba(113,94,144,1) 0%, rgba(107,129,148,1) 35%, rgba(101,145,108,1) 100%);
-  // background-clip: text;
-  // color: transparent;
   font-size: 60px;
+  width: 70%;
   color: rgb(113,94,144);
   text-align: center;
   position: absolute;
@@ -32,9 +30,11 @@
   font-size: 20px;
   position: absolute;
   left: 50%;
-  bottom: 30px;
+  bottom: 10px;
+  width: 80%;
   transform: translateX(-50%);
   color: #496252;
+  text-align: center;
 
   @include v.mobile {
     font-size: 16px;
