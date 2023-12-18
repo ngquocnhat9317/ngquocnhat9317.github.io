@@ -1,5 +1,5 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
-import { setLocalStorage } from "./common";
+import { createSlice } from "@reduxjs/toolkit";
+import { setLocalStorage } from "../utils/common";
 
 export type Stage = {
   stage: number;
@@ -36,13 +36,4 @@ const stageSlide = createSlice({
 });
 
 export const { setStage, backStage, nextStage, setLocalStage } = stageSlide.actions;
-
-export type ReducerStore = {
-  stage: Stage
-}
-
-export default configureStore({
-  reducer: {
-    stage: stageSlide.reducer,
-  },
-});
+export default stageSlide.reducer;

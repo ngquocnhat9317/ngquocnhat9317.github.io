@@ -45,7 +45,7 @@
     "no-case-declarations": "warn",
     "prefer-const": "error",
     "no-unused-vars": ["warn", {"argsIgnorePattern": "^_"}],
-    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/no-unused-vars": ["warn", {"argsIgnorePattern": "^_"}],
     "default-case-last": "off",
     "spaced-comment": "warn",
     "no-duplicate-imports": "warn",

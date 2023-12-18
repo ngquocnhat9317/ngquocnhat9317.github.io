@@ -75,6 +75,8 @@ const StageOne = memo(({ changePositionHandle }: Readonly<Props>): JSX.Element =
       </animated.p>
     </div>
   );
-})
+});
+
+StageOne.displayName = "StageOne";
 
 export default StageOne;

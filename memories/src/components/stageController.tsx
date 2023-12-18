@@ -1,21 +1,31 @@
 import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import StageOne from "@/components/stageOne";
-import StageTwo from "@/components/stageTwo";
-import StageThree from "@/components/stageThree";
 import ChangeButton from "@/components/changeButton";
+import Loading from "@/components/common/loading";
 
 import styles from "@/styles/stageController.module.scss";
 import { _clx } from "@/utils/common";
 import { useWindowHeight } from "@react-hook/window-size";
 import { animated, useSpring, config } from "@react-spring/web";
-import { ReducerStore, setStage } from "@/utils/reduxConfig";
+import { setStage } from "@/redux/stageSlide";
+import dynamic from "next/dynamic";
+
+const StageOne = dynamic(() => import("@/components/stageOne"), {
+  loading: () => <Loading id="stageOne" />,
+  ssr: true,
+});
+const StageTwo = dynamic(() => import("@/components/stageTwo"), {
+  loading: () => <Loading id="stageTwo" />,
+  ssr: true,
+});
+const StageThree = dynamic(() => import("@/components/stageThree"), {
+  loading: () => <Loading id="stageThree" />,
+  ssr: true,
+});
 
 function StateController() {
-  const localStage: number = useSelector(
-    ({ stage }: ReducerStore) => stage.localStage
-  );
+  const localStage: number = useSelector(({ stage }) => stage.localStage);
 
   const dispatch = useDispatch();
   const height = useWindowHeight();
@@ -95,7 +105,7 @@ function StateController() {
         className={_clx(styles.content, styles.content_two)}
         style={{ top: position2, opacity: opacity2 }}
       >
-        <StageTwo changePositionHandle={changePosition} />
+        <StageTwo />
       </animated.div>
       <animated.div
         className={_clx(styles.content, styles.content_two)}

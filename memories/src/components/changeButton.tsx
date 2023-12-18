@@ -57,7 +57,7 @@ const ChangeButton = memo(({
         isPosibleChange.current.max = 0;
         setIsChange(false);
       }, 100),
-    [nextPositionHandle, backPositionHandle, stage]
+    [nextPositionHandle, backPositionHandle, stage],
   );
 
   const bind = useDrag(({ active, movement: [_, y], target }) => {
@@ -101,14 +101,14 @@ const ChangeButton = memo(({
     (value: number) => () => {
       if (value !== stage) changePositionHandle(value);
     },
-    [changePositionHandle, stage]
+    [changePositionHandle, stage],
   );
 
   return (
     <div className={styles.wrapper_button}>
       <a.button
         {...bind()}
-        id="button_1"
+        id='button_1'
         className={styles.button}
         onClick={changePosition(1)}
         style={{
@@ -118,7 +118,7 @@ const ChangeButton = memo(({
       />
       <a.button
         {...bind()}
-        id="button_2"
+        id='button_2'
         className={styles.button}
         onClick={changePosition(2)}
         style={{
@@ -128,7 +128,7 @@ const ChangeButton = memo(({
       />
       <a.button
         {...bind()}
-        id="button_3"
+        id='button_3'
         className={styles.button}
         onClick={changePosition(3)}
         style={{
@@ -138,6 +138,8 @@ const ChangeButton = memo(({
       />
     </div>
   );
-})
+});
+
+ChangeButton.displayName = "ChangeButton";
 
 export default ChangeButton;
