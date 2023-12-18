@@ -3,12 +3,13 @@ import { useDispatch } from "react-redux";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 
-const StateController = dynamic(() => import("@/components/stateController"), {
-  loading: () => <></>,
-});
-
-import { setLocalStage } from "@/utils/reduxConfig";
+import { setLocalStage, setStage } from "@/utils/reduxConfig";
 import { getLocalStorage } from "@/utils/common";
+import Loading from "@/components/common/loading";
+
+const StateController = dynamic(() => import("@/components/stageController"), {
+  loading: () => <Loading />,
+});
 
 export default function Home() {
   const [localStageIndex, setLocalStageIndex] = useState<number>(0);
@@ -19,14 +20,19 @@ export default function Home() {
       const store = getLocalStorage("STAGE");
       if (store) {
         const stage: number = getLocalStorage("STAGE")["stage"];
-        setLocalStageIndex(stage);
-        dispatch(setLocalStage(stage));
+        setLocalStageIndex(stage || 1);
+        dispatch(setLocalStage(stage || 1));
       } else {
         setLocalStageIndex(1);
         dispatch(setLocalStage(1));
       }
     }
   }, [dispatch]);
+
+  useEffect(() => {
+    if (localStageIndex !== 0)
+      dispatch(setStage(localStageIndex));
+  }, [dispatch, localStageIndex])
 
   return (
     <>
