@@ -1,0 +1,37 @@
+import React, { memo, useEffect } from "react";
+import { useSelector } from "react-redux";
+import Image from "next/image";
+
+import { addQueue, removeQueue } from "@/redux/loadingSlide";
+import { ReducerStore } from "@/redux";
+import { useDispatch } from "@/hooks/customDispatch";
+import styles from "@/styles/loading.module.scss";
+
+type Props = {
+  id: string;
+};
+
+const Loading = memo(({ id }: Props) => {
+  const current = useSelector(({ loading }: ReducerStore) => loading.current);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(addQueue(id));
+
+    return () => dispatch(removeQueue(id));
+  }, [dispatch, id]);
+
+  if (current === id)
+    return (
+      <div className={styles.loading_background}>
+        <Image src='/images/loading.svg' alt='' height={20} width={20} />
+      </div>
+    );
+
+  return <></>;
+});
+
+Loading.displayName = "Loading";
+
+export default Loading;

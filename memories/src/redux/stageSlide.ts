@@ -1,5 +1,5 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
-import { setLocalStorage } from "./common";
+import { createSlice } from "@reduxjs/toolkit";
+import { setLocalStorage } from "../utils/common";
 
 export type Stage = {
   stage: number;
@@ -18,13 +18,13 @@ const stageSlide = createSlice({
       return { ...state, stage: action.payload as number };
     },
     backStage: (state) => {
-      if (state.stage > 1) {
+      if (state.stage >= 1) {
         setLocalStorage("STAGE", { "stage": state.stage - 1 });
         return { ...state, stage: state.stage - 1 };
       }
     },
     nextStage: (state) => {
-      if (state.stage < 3) {
+      if (state.stage <= 2) {
         setLocalStorage("STAGE", { "stage": state.stage + 1 });
         return { ...state, stage: state.stage + 1 };
       }
@@ -35,14 +35,5 @@ const stageSlide = createSlice({
   },
 });
 
-export const { setStage, backStage, setLocalStage } = stageSlide.actions;
-
-export type ReducerStore = {
-  stage: Stage
-}
-
-export default configureStore({
-  reducer: {
-    stage: stageSlide.reducer,
-  },
-});
+export const { setStage, backStage, nextStage, setLocalStage } = stageSlide.actions;
+export default stageSlide.reducer;

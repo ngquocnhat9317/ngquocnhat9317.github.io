@@ -3,7 +3,10 @@ const path = require('path')
 
 const nextConfig = {
   reactStrictMode: true,
-  output: 'export',
+  // output: 'export',
+  images: {
+    unoptimized: true,
+  },
   distDir: 'dist',
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],

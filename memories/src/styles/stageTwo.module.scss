@@ -1,0 +1,50 @@
+@use './_variables.scss' as v;
+@import './_variables.scss';
+
+$percent: 3.22581%;
+
+.wrapper_content {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  padding: 20px 20px 20px 28px;
+
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    overflow-y: auto;
+    height: 100%;
+
+    /* hidden scrollbar */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .wrapper_image {
+      width: calc((100% - 40px) / 5);
+      background: rgba($color: #daccba, $alpha: 0.5);
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background-color .5s;
+      clip-path: $poligon;
+
+      &:hover {
+        background-color: rgba($color: #c2ad92, $alpha: 0.8);
+      }
+
+      @include v.mobile {
+        width: 100%;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        display: block;
+      }
+    }
+  }
+}

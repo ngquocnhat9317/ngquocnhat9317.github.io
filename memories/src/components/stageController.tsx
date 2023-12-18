@@ -1,19 +1,32 @@
 import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import StateOne from "@/components/stateOne";
-import StateTwo from "@/components/stateTwo";
 import ChangeButton from "@/components/changeButton";
+import Loading from "@/components/common/loading";
 
-import styles from "@/styles/stateController.module.scss";
+import styles from "@/styles/stageController.module.scss";
 import { _clx } from "@/utils/common";
 import { useWindowHeight } from "@react-hook/window-size";
 import { animated, useSpring, config } from "@react-spring/web";
-import { ReducerStore, setStage } from "@/utils/reduxConfig";
+import { setStage } from "@/redux/stageSlide";
+import dynamic from "next/dynamic";
 
+const StageOne = dynamic(() => import("@/components/stageOne"), {
+  loading: () => <Loading id="stageOne" />,
+  ssr: true,
+});
+const StageTwo = dynamic(() => import("@/components/stageTwo"), {
+  loading: () => <Loading id="stageTwo" />,
+  ssr: true,
+});
+const StageThree = dynamic(() => import("@/components/stageThree"), {
+  loading: () => <Loading id="stageThree" />,
+  ssr: true,
+});
 
 function StateController() {
-  const localStage: number = useSelector(({ stage }: ReducerStore) => stage.localStage);
+  const localStage: number = useSelector(({ stage }) => stage.localStage);
+
   const dispatch = useDispatch();
   const height = useWindowHeight();
   const [
@@ -56,28 +69,50 @@ function StateController() {
         },
       });
     },
-    [api, dispatch],
+    [api, dispatch]
+  );
+
+  const backPosition = useCallback(
+    (value: number) => {
+      const new_value = value > 1 ? value - 1 : 1;
+      changePosition(new_value);
+    },
+    [changePosition]
+  );
+
+  const nextPosition = useCallback(
+    (value: number) => {
+      const new_value = value < 3 ? value + 1 : 3;
+      changePosition(new_value);
+    },
+    [changePosition]
   );
 
   return (
     <main className={styles.main} style={{ height: height || "100%" }}>
-      <ChangeButton changePositionHandle={changePosition} />
+      <ChangeButton
+        changePositionHandle={changePosition}
+        nextPositionHandle={nextPosition}
+        backPositionHandle={backPosition}
+      />
       <animated.div
         className={_clx(styles.content, styles.content_one)}
         style={{ top: position1, opacity: opacity1 }}
       >
-        <StateOne changePositionHandle={changePosition} />
+        <StageOne changePositionHandle={changePosition} />
       </animated.div>
       <animated.div
         className={_clx(styles.content, styles.content_two)}
         style={{ top: position2, opacity: opacity2 }}
       >
-        <StateTwo changePositionHandle={changePosition} />
+        <StageTwo />
       </animated.div>
       <animated.div
         className={_clx(styles.content, styles.content_two)}
         style={{ top: position3, opacity: opacity3 }}
-      />
+      >
+        <StageThree changePositionHandle={changePosition} />
+      </animated.div>
     </main>
   );
 }

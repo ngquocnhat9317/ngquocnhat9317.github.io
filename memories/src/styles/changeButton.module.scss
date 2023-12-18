@@ -1,21 +1,28 @@
 .wrapper_button {
-    position: absolute;
-    left: 5px;
-    top: 50%;
-    z-index: 10;
-    transform: translateY(-50%);
-    height: 120px;
-    width: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  z-index: 10;
+  transform: translateY(-50%);
+  height: 120px;
+  width: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-    .button {
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        background-color: rgba($color: #fff, $alpha: 0.5);
-        outline: none;
-        border: none;
+  .button {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgba($color: #fff, $alpha: 0.6);
+    outline: none;
+    border: none;
+    touch-action: none;
+
+    transition: background-color 1s;
+
+    &.active {
+      background-color: rgba($color: #fff, $alpha: 0.2);
     }
+  }
 }

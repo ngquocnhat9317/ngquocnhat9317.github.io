@@ -1,16 +1,16 @@
-import React, { useCallback, useState } from "react";
+import React, { memo, useCallback, useState } from "react";
 import { useSpring, animated } from "@react-spring/web";
 
 import { _clx } from "@/utils/common";
 import { CrimsonText, DancingText } from "@/fonts/configFont";
-import styles from "@/styles/stateOne.module.scss";
+import styles from "@/styles/stageOne.module.scss";
 import { CONTENT } from "@/utils/const";
 
 type Props = {
   changePositionHandle: (_value: number) => void;
 };
 
-function StateOne({ changePositionHandle }: Readonly<Props>): JSX.Element {
+const StageOne = memo(({ changePositionHandle }: Readonly<Props>): JSX.Element => {
   const [nextAble, setNextAble] = useState<boolean>(false);
   const [{ first, second, bottom }, api] = useSpring(
     () => ({
@@ -46,7 +46,6 @@ function StateOne({ changePositionHandle }: Readonly<Props>): JSX.Element {
     <div
       className={_clx(styles.wrapper_content)}
       onClick={clickHandle}
-      onKeyDown={clickHandle}
     >
       <animated.h1
         className={_clx(
@@ -76,6 +75,8 @@ function StateOne({ changePositionHandle }: Readonly<Props>): JSX.Element {
       </animated.p>
     </div>
   );
-}
+});
 
-export default StateOne;
+StageOne.displayName = "StageOne";
+
+export default StageOne;
