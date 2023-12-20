@@ -24,7 +24,7 @@ const StageThree = dynamic(() => import("@/components/stageThree"), {
   ssr: true,
 });
 
-function StateController() {
+function StateController(): JSX.Element {
   const localStage: number = useSelector(({ stage }) => stage.localStage);
 
   const dispatch = useDispatch();
