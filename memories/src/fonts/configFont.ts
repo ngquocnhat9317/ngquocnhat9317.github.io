@@ -1,11 +1,31 @@
 import localFont from "next/font/local";
 
 export const DancingText = localFont({
-  src: "./DancingScript-VariableFont.ttf",
+  src: "./DancingScriptFont.ttf",
   display: "swap",
 });
 
 export const CrimsonText = localFont({
-  src: "./CrimsonText-SemiBoldItalic.ttf",
+  src: "./CrimsonTextFont.ttf",
+  display: "swap",
+});
+
+export const PacificoText = localFont({
+  src: "./PacificoFont.ttf",
+  display: "swap",
+});
+
+export const LobsterText = localFont({
+  src: "./LobsterFont.ttf",
+  display: "swap",
+});
+
+export const SignikaNegativeText = localFont({
+  src: "./SignikaNegativeFont.ttf",
+  display: "swap",
+});
+
+export const BalooText = localFont({
+  src: "./BalooBhaijaanFont.ttf",
   display: "swap",
 });
