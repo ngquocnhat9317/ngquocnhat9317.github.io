@@ -1,35 +1,28 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 import Head from "next/head";
+import { useDispatch } from "react-redux";
 
-import { setLocalStage, setStage } from "@/redux/stageSlide";
-import { getLocalStorage } from "@/utils/common";
+import LoginComponent from "@/components/loginComponent";
 import Loading from "@/components/common/loading";
-import { verifyAccountRequest } from "@/services/login";
-import axios from "axios";
+import useCheckAuth from "@/hooks/checkAuth";
+import { getLocalStorage } from "@/utils/common";
+import { setLocalStage, setStage } from "@/redux/stageSlide";
 
 const StateController = dynamic(() => import("@/components/stageController"), {
-  loading: () => <Loading id="index" />,
-  ssr: true,
+  loading: () => <Loading id='index' />,
 });
 
-type IndexProps = {
-  auth: boolean;
-};
-
-export default function Home({ auth }: Readonly<IndexProps>) {
+export default function Home() {
   const [localStageIndex, setLocalStageIndex] = useState<number>(0);
+  const auth = useCheckAuth();
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    axios.get("https://api.ipify.org/?format=json")
-    .then(response => response.data)
-    .then(res => {
-      verifyAccountRequest({ ip: res.ip ?? "" });
-    })
-    .catch(error => console.log(error))
-  }, [])
+  const ContentMemo = useMemo(() => {
+    if (!auth) return <LoginComponent />;
+    if (localStageIndex !== 0) return <StateController />;
+    return null;
+  }, [auth, localStageIndex]);
 
   useEffect(() => {
     if (window !== undefined) {
@@ -54,14 +47,14 @@ export default function Home({ auth }: Readonly<IndexProps>) {
       <Head>
         <title>Memories</title>
         <meta
-          name="description"
-          content="Đây là nơi chưa kỹ niệm giữa Quắc Tô và Ngáo Ngơ"
+          name='description'
+          content='Đây là nơi chưa kỹ niệm giữa Quắc Tô và Ngáo Ngơ'
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="robots" content="noindex" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <meta name='robots' content='noindex' />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
-      {localStageIndex !== 0 ? <StateController /> : null}
+      {ContentMemo}
     </>
   );
 }

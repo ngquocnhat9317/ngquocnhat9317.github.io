@@ -1,0 +1,77 @@
+@use "./_variables.scss" as v;
+@import "./_variables.scss";
+
+.wrapper_login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  & > .login_content {
+    height: 200px;
+    width: 500px;
+    background-color: rgba($color: $white, $alpha: 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px -10px rgba($color: $back-gray, $alpha: 0.8);
+    transform: translate(5px, 5px);
+    transition: box-shadow 1s linear 0.2s, transform 1.2s linear;
+
+    &.actived {
+      box-shadow: 15px 15px 30px -10px rgba($color: $back-gray, $alpha: 0.8);
+      transform: translate(0, 0);
+    }
+
+    > .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      height: 100%;
+    }
+  }
+}
+
+.label {
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
+.input_text {
+  width: 380px;
+  font-size: 20px;
+  color: $back-gray;
+  text-align: center;
+  padding: 5px 10px 5px;
+  border-radius: $border-radius;
+  border: 1px solid $back-gray;
+
+  &:focus-within {
+    outline: none;
+    border: 2px solid $back-gray;
+  }
+}
+
+.button_group {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 380px;
+
+  .button {
+    display: block;
+    height: 45px;
+    width: 150px;
+    font-size: 22px;
+    color: $white;
+    background-color: #abc6f3;
+    border-radius: $border-radius;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #abeaf3;
+    }
+  }
+}
