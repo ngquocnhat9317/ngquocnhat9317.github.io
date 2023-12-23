@@ -1,12 +1,12 @@
-import axios from 'axios';
+import axios from "axios";
 
 const request = axios.create({
   baseURL: `${process.env.NEXT_PUBLIC_BASE_URL}`,
   headers: {
-    'Content-Type': 'application/json',
-    Accept: 'application/json',
+    "Content-Type": "application/json",
+    Accept: "application/json",
   },
-  responseType: 'json',
+  responseType: "json",
   withCredentials: false,
 });
 // after send request

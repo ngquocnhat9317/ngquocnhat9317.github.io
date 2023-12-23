@@ -1,10 +1,14 @@
+/** Get color at https://htmlcolorcodes.com/color-picker/
+  * With base color is #EAF3AB
+  */
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
-  --background-pastel: 135deg, rgba(192,241,255,1) 0%, rgba(236,249,224,1) 50%, rgba(255,222,201,1) 100%;
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  --background-pastel: 135deg, #eaf3ab 0%, #abf3b4 50%, #abeaf3 100%;
 }
 
 * {
@@ -21,7 +25,12 @@ body {
 }
 
 body {
-  background: linear-gradient(135deg, rgba(192,241,255,1) 0%, rgba(236,249,224,1) 50%, rgba(255,222,201,1) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(192, 241, 255, 1) 0%,
+    rgba(236, 249, 224, 1) 50%,
+    rgba(255, 222, 201, 1) 100%
+  );
 }
 
 #__next,

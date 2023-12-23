@@ -12,15 +12,15 @@ import { setStage } from "@/redux/stageSlide";
 import dynamic from "next/dynamic";
 
 const StageOne = dynamic(() => import("@/components/stageOne"), {
-  loading: () => <Loading id="stageOne" />,
+  loading: () => <Loading id='stageOne' />,
   ssr: true,
 });
 const StageTwo = dynamic(() => import("@/components/stageTwo"), {
-  loading: () => <Loading id="stageTwo" />,
+  loading: () => <Loading id='stageTwo' />,
   ssr: true,
 });
 const StageThree = dynamic(() => import("@/components/stageThree"), {
-  loading: () => <Loading id="stageThree" />,
+  loading: () => <Loading id='stageThree' />,
   ssr: true,
 });
 
@@ -69,7 +69,7 @@ function StateController(): JSX.Element {
         },
       });
     },
-    [api, dispatch]
+    [api, dispatch],
   );
 
   const backPosition = useCallback(
@@ -77,7 +77,7 @@ function StateController(): JSX.Element {
       const new_value = value > 1 ? value - 1 : 1;
       changePosition(new_value);
     },
-    [changePosition]
+    [changePosition],
   );
 
   const nextPosition = useCallback(
@@ -85,7 +85,7 @@ function StateController(): JSX.Element {
       const new_value = value < 3 ? value + 1 : 3;
       changePosition(new_value);
     },
-    [changePosition]
+    [changePosition],
   );
 
   return (

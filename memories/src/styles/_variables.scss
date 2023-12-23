@@ -1,6 +1,11 @@
 $tablet-width: 768px;
 $percent: 3.22581%;
 
+$back-gray: #333;
+$white: #fff;
+
+$border-radius: 5px;
+
 @mixin mobile {
   @media (max-width: #{$tablet-width - 1px}) {
     @content;
@@ -139,6 +144,8 @@ $poligon: polygon(
   100% 0%,
 );
 
-:export {
-  poligon: $poligon
-}
+// :export {
+//   poligon: $poligon;
+//   color-back-gray: $back-gray;
+//   color-white: $white;
+// }
