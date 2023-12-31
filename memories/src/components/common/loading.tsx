@@ -25,7 +25,13 @@ const Loading = memo(({ id }: Props) => {
   if (current === id)
     return (
       <div className={styles.loading_background}>
-        <Image src='/images/loading.svg' alt='' height={20} width={20} />
+        <Image
+          src='/images/loading.svg'
+          alt='loading'
+          height={40}
+          width={40}
+          priority
+        />
       </div>
     );
 

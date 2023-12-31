@@ -13,16 +13,25 @@ const StateController = dynamic(() => import("@/components/stageController"), {
   loading: () => <Loading id='index' />,
 });
 
+type LoginState = "waiting" | "unauthenticated" | "authenticated";
+
 export default function Home() {
   const [localStageIndex, setLocalStageIndex] = useState<number>(0);
-  const auth = useCheckAuth();
+  const { isAuth: auth, isVerifying, triggerVerify } = useCheckAuth();
+
+  const loginState = useMemo<LoginState>(() => {
+    if (auth) return "authenticated";
+    if (!auth && !isVerifying) return "unauthenticated";
+    return "waiting";
+  }, [auth, isVerifying]);
+
   const dispatch = useDispatch();
 
   const ContentMemo = useMemo(() => {
-    if (!auth) return <LoginComponent />;
-    if (localStageIndex !== 0) return <StateController />;
-    return null;
-  }, [auth, localStageIndex]);
+    if (loginState === "unauthenticated") return <LoginComponent triggerVerifyFunction={triggerVerify} />;
+    if (loginState === "authenticated" &&localStageIndex !== 0) return <StateController />;
+    return <Loading id='login' />;
+  }, [loginState, localStageIndex, triggerVerify]);
 
   useEffect(() => {
     if (window !== undefined) {
