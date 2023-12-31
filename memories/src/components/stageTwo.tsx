@@ -14,11 +14,11 @@ const StageTwo = memo(() => {
           .map((index) => (
             <div key={index} className={styles.wrapper_image}>
               <Image
-                src={`/images/sample_${(index%4)+1}.jpeg`}
+                src={`/images/sample_${(index % 4) + 1}.jpeg`}
                 alt=''
                 width={100}
                 height={100}
-                objectFit='contain'
+                style={{ objectFit: "contain" }}
               />
             </div>
           ))}

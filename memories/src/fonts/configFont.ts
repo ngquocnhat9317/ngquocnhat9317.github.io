@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 export const DancingText = localFont({
   src: "./DancingScriptFont.ttf",
   display: "swap",
+  preload: true,
 });
 
 export const CrimsonText = localFont({
@@ -13,6 +14,7 @@ export const CrimsonText = localFont({
 export const PacificoText = localFont({
   src: "./PacificoFont.ttf",
   display: "swap",
+  preload: true,
 });
 
 export const LobsterText = localFont({

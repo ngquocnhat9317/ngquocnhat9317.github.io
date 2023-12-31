@@ -1,6 +1,9 @@
 import { useCallback, useRef } from "react";
 
-const useWrapperApi = (_function: (..._arg: any[]) => void, dependenci: []) => {
+const useWrapperApi = (
+  _function: (..._arg: any[]) => void,
+  _dependenci: (string | boolean | number)[],
+) => {
   const ref = useRef(true);
 
   const wrapperFunction = useCallback(() => {
@@ -9,7 +12,7 @@ const useWrapperApi = (_function: (..._arg: any[]) => void, dependenci: []) => {
       ref.current = false;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [_function, ...dependenci]);
+  }, [_function, ..._dependenci]);
 
   return wrapperFunction;
 };

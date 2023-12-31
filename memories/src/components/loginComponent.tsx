@@ -6,18 +6,21 @@ import React, {
   useRef,
   useState,
 } from "react";
+
 import { CONTENT } from "@/utils/const";
 import styles from "@/styles/loginComponent.module.scss";
 import { _clx } from "@/utils/common";
 import { checkIp, loginRequest } from "@/services/login";
 import { BalooText, SignikaNegativeText } from "@/fonts/configFont";
-import { useRouter } from "next/router";
 
-const LoginComponent = memo(() => {
+type Props = {
+  triggerVerifyFunction: () => void;
+};
+
+const LoginComponent = memo(({ triggerVerifyFunction }: Props) => {
   const [stylesContent, setStylesContent] = useState<string>(
     styles.login_content,
   );
-  const router = useRouter()
   const nameRef = useRef<string>("");
   const inputRef = useRef<any>(null); // eslint-disable-line @typescript-eslint/no-explicit-any
 
@@ -31,16 +34,17 @@ const LoginComponent = memo(() => {
 
   const loginHandle = useCallback((name: string) => {
     checkIp().then((ip) => {
-      loginRequest({ ip, name }).then(() => {
-        router.reload()
-      });
+      loginRequest({ ip, name }).then(() => triggerVerifyFunction());
     });
-  }, []);
+  }, [triggerVerifyFunction]);
 
-  const submitHandle = useCallback(async (event: SyntheticEvent) => {
-    event.preventDefault();
-    loginHandle(nameRef.current);
-  }, [loginHandle]);
+  const submitHandle = useCallback(
+    async (event: SyntheticEvent) => {
+      event.preventDefault();
+      loginHandle(nameRef.current);
+    },
+    [loginHandle],
+  );
 
   const onChangeHandle = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
