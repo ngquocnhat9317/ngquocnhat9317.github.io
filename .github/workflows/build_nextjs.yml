@@ -91,6 +91,13 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Set environment
+        shell: bash
+        env:
+          SUPER_SECRET: ${{ secrets.NEXT_PUBLIC_BACK_END_KEY }}
+        run: |
+          NEXT_PUBLIC_BACK_END_KEY="$SUPER_SECRET"
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3

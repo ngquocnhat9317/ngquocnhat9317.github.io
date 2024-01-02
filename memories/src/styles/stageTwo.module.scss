@@ -26,7 +26,7 @@ $percent: 3.22581%;
     .wrapper_image {
       width: calc((100% - 40px) / 5);
       background: rgba($color: #daccba, $alpha: 0.5);
-      padding: 8px 15px;
+      padding: 8px 2%;
       border-radius: 5px;
       transition: background-color .5s;
       clip-path: $poligon;
