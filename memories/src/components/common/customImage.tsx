@@ -1,16 +1,13 @@
-import ImageNext, { ImageLoaderProps } from "next/image";
-import React, { memo } from "react";
-
-const imageKitLoader = ({ src, width, quality }: ImageLoaderProps) => {
-  if (src.startsWith("/")) src = src.slice(1);
-  const params = [`w-${width}`];
-  if (quality) {
-    params.push(`q-${quality}`);
-  }
-  const paramsString = params.join(",");
-  const urlEndpoint = process.env.NEXT_PUBLIC_BASE_URL || "";
-  return `${urlEndpoint}/${src}?tr=${paramsString}`;
-};
+import React, {
+  ElementRef,
+  memo,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
+import Image from "next/image";
+import { IMAGE_KIT_URL } from "@/utils/const";
 
 type ImageProps = {
   src: string;
@@ -19,17 +16,56 @@ type ImageProps = {
   height?: number | `${number}`;
 };
 
-const Image = memo((props: ImageProps) => {
+const ImageKit = memo((props: ImageProps) => {
+  const [[widthImage, heightImage], setImageSize] = useState([100, 133]);
+  const refSpan = useRef<ElementRef<"span">>(null);
+
+  useEffect(() => {
+    const setImageSizeHandle = () => {
+      const width = refSpan.current?.clientWidth ?? 0;
+      setImageSize([width, (width * 4) / 3]);
+    };
+
+    window.addEventListener("resize", setImageSizeHandle);
+    const timeout = setTimeout(setImageSizeHandle, 200);
+
+    return () => {
+      window.removeEventListener("resize", setImageSizeHandle);
+      clearTimeout(timeout);
+    };
+  }, []);
+
+  const srcMemo = useMemo(() => {
+    let src = props.src;
+    if (src.startsWith("/")) src = src.slice(1);
+    const params = [`w-${widthImage}`, `h-${heightImage}`, "q-100"];
+    const paramsString = params.join(",");
+
+    return `${IMAGE_KIT_URL}/${src}?tr=${paramsString}`;
+  }, [props.src, widthImage, heightImage]);
+
   return (
-    <ImageNext
-      {...props}
-      loader={imageKitLoader}
-      placeholder='blur'
-      blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xw8AAoMBgDTD2qgAAAAASUVORK5CYII='
-    />
+    <span ref={refSpan}>
+      <Image
+        src={srcMemo}
+        alt={props.alt}
+        width={widthImage}
+        height={heightImage}
+        placeholder='blur'
+        style={{
+          objectFit: "cover",
+          display: "block",
+          width: widthImage,
+          height: heightImage,
+        }}
+        sizes='100%'
+        loading='lazy'
+        blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xw8AAoMBgDTD2qgAAAAASUVORK5CYII='
+      />
+    </span>
   );
 });
 
-Image.displayName = "Image";
+ImageKit.displayName = "ImageKit";
 
-export default Image;
+export default ImageKit;

@@ -26,20 +26,24 @@ $percent: 3.22581%;
     .wrapper_image {
       width: calc((100% - 40px) / 5);
       background: rgba($color: #daccba, $alpha: 0.5);
-      padding: 8px 2%;
+      padding: 10px;
       border-radius: 5px;
       transition: background-color .5s;
-      clip-path: $poligon;
 
       &:hover {
         background-color: rgba($color: #c2ad92, $alpha: 0.8);
       }
 
-      @include v.mobile {
-        width: 100%;
+      @include v.tablet {
+        width: calc((100% - 20px) / 3);
       }
 
-      img {
+
+      @include v.mobile {
+        width: calc((100% - 10px) / 2);
+      }
+
+      span {
         width: 100%;
         height: auto;
         margin: 0;
