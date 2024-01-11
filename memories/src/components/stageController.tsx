@@ -1,15 +1,14 @@
 import React, { useCallback } from "react";
+import dynamic from "next/dynamic";
 import { useDispatch, useSelector } from "react-redux";
 
 import ChangeButton from "@/components/changeButton";
 import Loading from "@/components/common/loading";
-
-import styles from "@/styles/stageController.module.scss";
 import { _clx } from "@/utils/common";
 import { useWindowHeight } from "@react-hook/window-size";
-import { animated, useSpring, config } from "@react-spring/web";
+import { animated, config, useSpring } from "@react-spring/web";
 import { setStage } from "@/redux/stageSlide";
-import dynamic from "next/dynamic";
+import styles from "@/styles/stageController.module.scss";
 
 const StageOne = dynamic(() => import("@/components/stageOne"), {
   loading: () => <Loading id='stageOne' />,

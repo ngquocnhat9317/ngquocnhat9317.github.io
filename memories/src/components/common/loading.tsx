@@ -1,9 +1,9 @@
 import React, { memo, useEffect } from "react";
-import { useSelector } from "react-redux";
 import Image from "next/image";
+import { useSelector } from "react-redux";
 
-import { addQueue, removeQueue } from "@/redux/loadingSlide";
 import { ReducerStore } from "@/redux";
+import { addQueue, removeQueue } from "@/redux/loadingSlide";
 import { useDispatch } from "@/hooks/customDispatch";
 import styles from "@/styles/loading.module.scss";
 

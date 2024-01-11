@@ -22,8 +22,13 @@ const useCheckAuth = (): AuthCheck => {
   }, []);
 
   /** Trigger verify for login modal */
-  const triggerVerify = useCallback(() => {
+  const triggerVerify = useCallback((isSkip: boolean = false) => {
     setIsVerifying(true);
+
+    if (isSkip) {
+      setIsAuth(true);
+      return;
+    }
 
     checkIp().then(async (ip) => {
       const check = await verifyAccountRequest({ ip });

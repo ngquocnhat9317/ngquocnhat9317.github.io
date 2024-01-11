@@ -1,6 +1,6 @@
 import React, {
-  SyntheticEvent,
   memo,
+  SyntheticEvent,
   useCallback,
   useEffect,
   useRef,
@@ -8,10 +8,10 @@ import React, {
 } from "react";
 
 import { CONTENT } from "@/utils/const";
-import styles from "@/styles/loginComponent.module.scss";
 import { _clx } from "@/utils/common";
 import { checkIp, loginRequest } from "@/services/login";
 import { BalooText, SignikaNegativeText } from "@/fonts/configFont";
+import styles from "@/styles/loginComponent.module.scss";
 
 type Props = {
   triggerVerifyFunction: () => void;
