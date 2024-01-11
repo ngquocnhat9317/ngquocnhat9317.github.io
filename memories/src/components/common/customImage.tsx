@@ -7,27 +7,26 @@ import React, {
   useState,
 } from "react";
 import Image from "next/image";
+
 import { IMAGE_KIT_URL } from "@/utils/const";
 
 type ImageProps = {
-  src: string;
+  path: string;
   alt: string;
-  width?: number | `${number}`;
-  height?: number | `${number}`;
 };
 
 const ImageKit = memo((props: ImageProps) => {
-  const [[widthImage, heightImage], setImageSize] = useState([100, 133]);
+  const [[widthImage, heightImage], setImageSize] = useState<[number, number]>([100, 133]);
   const refSpan = useRef<ElementRef<"span">>(null);
 
   useEffect(() => {
     const setImageSizeHandle = () => {
       const width = refSpan.current?.clientWidth ?? 0;
-      setImageSize([width, (width * 4) / 3]);
+      setImageSize([width, Math.floor((width * 4) / 3)]);
     };
 
     window.addEventListener("resize", setImageSizeHandle);
-    const timeout = setTimeout(setImageSizeHandle, 200);
+    const timeout = setTimeout(setImageSizeHandle, 10);
 
     return () => {
       window.removeEventListener("resize", setImageSizeHandle);
@@ -36,13 +35,13 @@ const ImageKit = memo((props: ImageProps) => {
   }, []);
 
   const srcMemo = useMemo(() => {
-    let src = props.src;
-    if (src.startsWith("/")) src = src.slice(1);
-    const params = [`w-${widthImage}`, `h-${heightImage}`, "q-100"];
+    let path = props.path;
+    if (path.startsWith("/")) path = path.slice(1);
+    const params = ["q-100", "f-webp"];
     const paramsString = params.join(",");
 
-    return `${IMAGE_KIT_URL}/${src}?tr=${paramsString}`;
-  }, [props.src, widthImage, heightImage]);
+    return `${IMAGE_KIT_URL}/${path}?tr=${paramsString}`;
+  }, [props.path]);
 
   return (
     <span ref={refSpan}>

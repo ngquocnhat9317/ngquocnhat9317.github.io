@@ -1,10 +1,10 @@
 import React, { memo, useCallback, useState } from "react";
-import { useSpring, animated } from "@react-spring/web";
+import { animated, useSpring } from "@react-spring/web";
 
 import { _clx } from "@/utils/common";
 import { CrimsonText, DancingText } from "@/fonts/configFont";
-import styles from "@/styles/stageOne.module.scss";
 import { CONTENT } from "@/utils/const";
+import styles from "@/styles/stageOne.module.scss";
 
 type Props = {
   changePositionHandle: (_value: number) => void;

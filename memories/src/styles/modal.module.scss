@@ -1,0 +1,58 @@
+@use './_variables.scss' as v;
+
+.modal_content {
+  background: linear-gradient(
+    45deg,
+    rgba(192, 241, 255, 1) 0%,
+    rgba(236, 249, 224, 1) 50%,
+    rgba(255, 222, 201, 1) 100%
+  );
+  padding: 15px !important;
+
+  button[aria-label=Close] {
+    top: -30px;
+    right: 0;
+    background-color: rgba($color: #fff, $alpha: .5);
+
+    &:hover {
+      background-color: rgba($color: #fff, $alpha: .7);
+    }
+  }
+
+  .modal_wrapper_image {
+    width: 300px;
+    height: auto;
+    display: block;
+    margin-right: 15px;
+
+    @include v.tablet {
+      width: 180px;
+    }
+
+
+    @include v.mobile {
+      width: 150px;
+    }
+  }
+
+  span:not([aria-label=Close] > *) {
+    width: 200px;
+    height: auto;
+    margin: 0;
+    display: block;
+
+    @include v.tablet {
+      width: 180px;
+    }
+
+
+    @include v.mobile {
+      width: 150px;
+    }
+  }
+}
+
+.modal_body {
+  display: flex;
+  width: 100%;
+}
