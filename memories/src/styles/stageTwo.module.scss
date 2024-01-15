@@ -28,7 +28,15 @@ $percent: 3.22581%;
       background: rgba($color: #daccba, $alpha: 0.5);
       padding: 10px;
       border-radius: 5px;
-      transition: background-color .5s;
+
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: opacity 2s linear, transform 1s linear, background-color .5s linear;
+
+      &.show_content {
+        transform: translateY(0);
+        opacity: 1;
+      }
 
       &:hover {
         background-color: rgba($color: #c2ad92, $alpha: 0.8);

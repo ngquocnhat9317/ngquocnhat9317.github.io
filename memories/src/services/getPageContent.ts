@@ -3,6 +3,7 @@ import request from "@/config/apiConfig";
 export type PageContent = {
   id: number;
   path: string;
+  date?: string;
   label: string;
   context?: string;
 };
@@ -14,7 +15,7 @@ type PageContentResponse = {
 
 export const getPageContentRequest = async (): Promise<PageContentResponse> => {
   const res = await request({
-    url: "/get-page-content",
+    url: "/get-context",
     method: "GET",
   });
 

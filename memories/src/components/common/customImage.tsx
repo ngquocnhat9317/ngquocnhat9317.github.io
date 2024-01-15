@@ -13,11 +13,13 @@ import { IMAGE_KIT_URL } from "@/utils/const";
 type ImageProps = {
   path: string;
   alt: string;
+  quality?: number;
 };
 
 const ImageKit = memo((props: ImageProps) => {
   const [[widthImage, heightImage], setImageSize] = useState<[number, number]>([100, 133]);
   const refSpan = useRef<ElementRef<"span">>(null);
+  const [isLoad, setIsLoad] = useState(true);
 
   useEffect(() => {
     const setImageSizeHandle = () => {
@@ -37,11 +39,11 @@ const ImageKit = memo((props: ImageProps) => {
   const srcMemo = useMemo(() => {
     let path = props.path;
     if (path.startsWith("/")) path = path.slice(1);
-    const params = ["q-100", "f-webp"];
+    const params = [`q-${props.quality ?? 60}`, "f-webp"];
     const paramsString = params.join(",");
 
     return `${IMAGE_KIT_URL}/${path}?tr=${paramsString}`;
-  }, [props.path]);
+  }, [props.path, props.quality]);
 
   return (
     <span ref={refSpan}>
@@ -50,16 +52,16 @@ const ImageKit = memo((props: ImageProps) => {
         alt={props.alt}
         width={widthImage}
         height={heightImage}
-        placeholder='blur'
         style={{
           objectFit: "cover",
           display: "block",
           width: widthImage,
           height: heightImage,
+          filter: isLoad ? "blur(5px)": "none",
         }}
+        onLoad={() => setIsLoad(false)}
         sizes='100%'
         loading='lazy'
-        blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xw8AAoMBgDTD2qgAAAAASUVORK5CYII='
       />
     </span>
   );

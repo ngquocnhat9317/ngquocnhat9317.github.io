@@ -1,4 +1,4 @@
-import React, { memo, useCallback } from "react";
+import React, { memo, useCallback, useMemo } from "react";
 import { Modal } from "antd";
 import { isUndefined } from "lodash";
 
@@ -19,23 +19,40 @@ const ModalMemories = memo(({ isOpen, imageItem, closeHandle }: ModalProps) => {
     closeHandle();
   }, [closeHandle]);
 
+  const timeMemo = useMemo(() => {
+    if (imageItem?.path) {
+      return imageItem.path.substring(0, 10).replaceAll("-", "/");
+    }
+    return "";
+  }, [imageItem?.path]);
+
   return (
     <Modal
       open={isOpen}
-      width={"calc(100% - 20px)"}
+      width={"70%"}
       classNames={{
         content: styles.modal_content ?? "",
         body: styles.modal_body ?? "",
       }}
+      wrapClassName={styles.modal_wrapper}
       onCancel={closeHandler}
       footer={null}
       centered
+      destroyOnClose
     >
       <ContentWrapper condition={!isUndefined(imageItem)}>
         <div className={styles.modal_wrapper_image}>
-          <ImageKit path={imageItem?.path || ""} alt={imageItem?.label || ""} />
+          <ImageKit
+            path={imageItem?.path || ""}
+            alt={imageItem?.label || ""}
+            quality={100}
+          />
         </div>
-        <p className={CrimsonText.className}>{imageItem?.context || ""}</p>
+        <div className={styles.modal_context}>
+          <h2 className={CrimsonText.className}>{imageItem?.label || ""}</h2>
+          <p className={CrimsonText.className}>{timeMemo}</p>
+          <p className={CrimsonText.className}>{imageItem?.context || ""}</p>
+        </div>
       </ContentWrapper>
     </Modal>
   );

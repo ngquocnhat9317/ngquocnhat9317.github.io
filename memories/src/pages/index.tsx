@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
-import dynamic from "next/dynamic";
 import Head from "next/head";
+import dynamic from "next/dynamic";
 import { useDispatch } from "react-redux";
 
 import LoginComponent from "@/components/loginComponent";
 import Loading from "@/components/common/loading";
+import AudioWrapper from "@/components/common/audioWrapper";
 import useCheckAuth from "@/hooks/checkAuth";
-import { getLocalStorage } from "@/utils/common";
 import { setLocalStage, setStage } from "@/redux/stageSlide";
 
 const StateController = dynamic(() => import("@/components/stageController"), {
@@ -34,17 +34,8 @@ export default function Home() {
   }, [loginState, localStageIndex, triggerVerify]);
 
   useEffect(() => {
-    if (window !== undefined) {
-      const store = getLocalStorage("STAGE");
-      if (store) {
-        const stage: number = getLocalStorage("STAGE")["stage"];
-        setLocalStageIndex(stage || 1);
-        dispatch(setLocalStage(stage || 1));
-      } else {
-        setLocalStageIndex(1);
-        dispatch(setLocalStage(1));
-      }
-    }
+    setLocalStageIndex(1);
+    dispatch(setLocalStage(1));
   }, [dispatch]);
 
   useEffect(() => {
@@ -63,7 +54,9 @@ export default function Home() {
         <meta name='robots' content='noindex' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      {ContentMemo}
+      <AudioWrapper>
+        {ContentMemo}
+      </AudioWrapper>
     </>
   );
 }
