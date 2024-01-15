@@ -14,7 +14,7 @@ import { BalooText, SignikaNegativeText } from "@/fonts/configFont";
 import styles from "@/styles/loginComponent.module.scss";
 
 type Props = {
-  triggerVerifyFunction: () => void;
+  triggerVerifyFunction: (_isSkip?: boolean) => void;
 };
 
 const LoginComponent = memo(({ triggerVerifyFunction }: Props) => {

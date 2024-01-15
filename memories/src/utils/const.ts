@@ -12,7 +12,7 @@ type Content = {
     welcome_second: string;
     next: string;
   };
-  page_two: PageContent[];
+  page_two: PageContent[] | null;
 };
 
 type ContentGroup = {
@@ -22,359 +22,196 @@ type ContentGroup = {
 
 export const IMAGE_KIT_URL = process.env.NEXT_PUBLIC_IMAGE_KIT ?? "";
 
-export const IMAGE_LIST_PROD = [
-  {
-    id: 1,
-    path: "/20-09-2020-airport",
-    label: "",
-  },
-  {
-    id: 2,
-    path: "/30-04-2021-part-1",
-    label: "",
-  },
-  {
-    id: 3,
-    path: "/30-04-2021-part-2",
-    label: "",
-  },
-  {
-    id: 4,
-    path: "/30-04-2021-part-3",
-    label: "",
-  },
-  {
-    id: 5,
-    path: "/30-04-2021-part-4",
-    label: "",
-  },
-  {
-    id: 6,
-    path: "/02-05-2021-part-1",
-    label: "",
-  },
-  {
-    id: 7,
-    path: "/02-05-2021-part-2",
-    label: "",
-  },
-  {
-    id: 8,
-    path: "/02-05-2021-part-3",
-    label: "",
-  },
-  {
-    id: 9,
-    path: "/02-05-2021-part-4",
-    label: "",
-  },
-  {
-    id: 10,
-    path: "/02-05-2021-part-5",
-    label: "",
-  },
-  {
-    id: 11,
-    path: "/19-06-2021-danang",
-    label: "",
-  },
-  {
-    id: 12,
-    path: "/10-10-2021-hanoi",
-    label: "",
-  },
-  {
-    id: 13,
-    path: "/07-11-2021-hanriver",
-    label: "",
-  },
-  {
-    id: 14,
-    path: "/07-11-2021-airport",
-    label: "",
-  },
-  {
-    id: 15,
-    path: "/15-01-2022-airport",
-    label: "",
-  },
-  {
-    id: 16,
-    path: "/14-02-2022-valentine",
-    label: "",
-  },
-  {
-    id: 17,
-    path: "/26-03-2022-hue",
-    label: "",
-  },
-  {
-    id: 18,
-    path: "/12-05-2022-saigon",
-    label: "",
-  },
-  {
-    id: 19,
-    path: "/18-03-2023",
-    label: "",
-  },
-  {
-    id: 20,
-    path: "/19-03-2023-hoian",
-    label: "",
-  },
-  {
-    id: 21,
-    path: "/30-03-2023",
-    label: "",
-  },
-  {
-    id: 22,
-    path: "/21-04-2023",
-    label: "",
-  },
-  {
-    id: 23,
-    path: "/04-05-2023",
-    label: "",
-  },
-  {
-    id: 24,
-    path: "/07-05-2023-beautiful-day",
-    label: "",
-  },
-  {
-    id: 25,
-    path: "/27-05-2023",
-    label: "",
-  },
-  {
-    id: 26,
-    path: "/29-07-2023-mangden-travel",
-    label: "",
-  },
-  {
-    id: 27,
-    path: "/23-09-2023",
-    label: "",
-  },
-  {
-    id: 28,
-    path: "/30-09-2023",
-    label: "",
-  },
-  {
-    id: 29,
-    path: "/23-11-2023",
-    label: "",
-  },
-  {
-    id: 30,
-    path: "/02-12-2023-prepare-for-exam",
-    label: "",
-  },
-  {
-    id: 31,
-    path: "/24-12-2023-xmas",
-    label: "",
-  },
-  {
-    id: 32,
-    path: "/26-12-2023-ngaongo",
-    label: "",
-  },
-];
-
 export const IMAGE_LIST_DEV: PageContent[] = [
   {
     id: 1,
-    path: "/sample_1",
+    path: "sample_1",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 2,
-    path: "/sample_2",
+    path: "sample_2",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 3,
-    path: "/sample_3",
+    path: "sample_3",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 4,
-    path: "/sample_4",
+    path: "sample_4",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 5,
-    path: "/sample_1",
+    path: "sample_1",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 6,
-    path: "/sample_2",
+    path: "sample_2",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 7,
-    path: "/sample_3",
+    path: "sample_3",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 8,
-    path: "/sample_4",
+    path: "sample_4",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 9,
-    path: "/sample_1",
+    path: "sample_1",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 10,
-    path: "/sample_2",
+    path: "sample_2",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 11,
-    path: "/sample_3",
+    path: "sample_3",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 12,
-    path: "/sample_4",
+    path: "sample_4",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 13,
-    path: "/sample_1",
+    path: "sample_1",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 14,
-    path: "/sample_2",
+    path: "sample_2",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 15,
-    path: "/sample_3",
+    path: "sample_3",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 16,
-    path: "/sample_4",
+    path: "sample_4",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 17,
-    path: "/sample_1",
+    path: "sample_1",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 18,
-    path: "/sample_2",
+    path: "sample_2",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 19,
-    path: "/sample_3",
+    path: "sample_3",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 20,
-    path: "/sample_4",
+    path: "sample_4",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 21,
-    path: "/sample_1",
+    path: "sample_1",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 22,
-    path: "/sample_2",
+    path: "sample_2",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 23,
-    path: "/sample_3",
+    path: "sample_3",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 24,
-    path: "/sample_4",
+    path: "sample_4",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 25,
-    path: "/sample_1",
+    path: "sample_1",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 26,
-    path: "/sample_2",
+    path: "sample_2",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 27,
-    path: "/sample_3",
+    path: "sample_3",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 28,
-    path: "/sample_4",
+    path: "sample_4",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 29,
-    path: "/sample_1",
+    path: "sample_1",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 30,
-    path: "/sample_2",
+    path: "sample_2",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 31,
-    path: "/sample_3",
+    path: "sample_3",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
   {
     id: 32,
-    path: "/sample_4",
+    path: "sample_4",
     label: faker.lorem.words({ min: 4, max: 10 }),
     context: faker.lorem.paragraphs(),
   },
@@ -391,7 +228,7 @@ const DEV_TEXT = {
     welcome_second: "Pellentesque habitant morbi tristique senectus et netus?",
     next: "Cras vehicula in erat eleifend ornare. Nullam.",
   },
-  page_two: IMAGE_LIST_DEV,
+  page_two: null,
 } as Content;
 
 const PROD_TEXT = {
@@ -405,7 +242,7 @@ const PROD_TEXT = {
     welcome_second: "Em đã sẳn sàng khám phá chưa nào?",
     next: "Nhấn bất kỳ để đi đến trang tiếp nhé.",
   },
-  page_two: IMAGE_LIST_PROD,
+  page_two: null,
 } as Content;
 
 export const TEXT_CONTENT = {

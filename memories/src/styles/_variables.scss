@@ -7,6 +7,10 @@ $white: #fff;
 
 $border-radius: 5px;
 
+$text-color-1: #715e90;
+$text-color-2: #496252;
+$text-color-3: #3a392a;
+
 @mixin mobile {
   @media (max-width: #{$tablet-width - 1px}) {
     @content;
