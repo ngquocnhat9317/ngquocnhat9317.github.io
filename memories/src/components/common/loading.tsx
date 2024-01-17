@@ -1,9 +1,9 @@
 import React, { memo, useEffect } from "react";
-import { useSelector } from "react-redux";
 import Image from "next/image";
+import { useSelector } from "react-redux";
 
-import { addQueue, removeQueue } from "@/redux/loadingSlide";
 import { ReducerStore } from "@/redux";
+import { addQueue, removeQueue } from "@/redux/loadingSlide";
 import { useDispatch } from "@/hooks/customDispatch";
 import styles from "@/styles/loading.module.scss";
 
@@ -25,7 +25,13 @@ const Loading = memo(({ id }: Props) => {
   if (current === id)
     return (
       <div className={styles.loading_background}>
-        <Image src='/images/loading.svg' alt='' height={20} width={20} />
+        <Image
+          src='/images/loading.svg'
+          alt='loading'
+          height={40}
+          width={40}
+          priority
+        />
       </div>
     );
 

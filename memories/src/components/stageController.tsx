@@ -1,30 +1,29 @@
 import React, { useCallback } from "react";
+import dynamic from "next/dynamic";
 import { useDispatch, useSelector } from "react-redux";
 
 import ChangeButton from "@/components/changeButton";
 import Loading from "@/components/common/loading";
-
-import styles from "@/styles/stageController.module.scss";
 import { _clx } from "@/utils/common";
 import { useWindowHeight } from "@react-hook/window-size";
-import { animated, useSpring, config } from "@react-spring/web";
+import { animated, config, useSpring } from "@react-spring/web";
 import { setStage } from "@/redux/stageSlide";
-import dynamic from "next/dynamic";
+import styles from "@/styles/stageController.module.scss";
 
 const StageOne = dynamic(() => import("@/components/stageOne"), {
-  loading: () => <Loading id="stageOne" />,
+  loading: () => <Loading id='stageOne' />,
   ssr: true,
 });
 const StageTwo = dynamic(() => import("@/components/stageTwo"), {
-  loading: () => <Loading id="stageTwo" />,
+  loading: () => <Loading id='stageTwo' />,
   ssr: true,
 });
 const StageThree = dynamic(() => import("@/components/stageThree"), {
-  loading: () => <Loading id="stageThree" />,
+  loading: () => <Loading id='stageThree' />,
   ssr: true,
 });
 
-function StateController() {
+function StateController(): JSX.Element {
   const localStage: number = useSelector(({ stage }) => stage.localStage);
 
   const dispatch = useDispatch();
@@ -69,7 +68,7 @@ function StateController() {
         },
       });
     },
-    [api, dispatch]
+    [api, dispatch],
   );
 
   const backPosition = useCallback(
@@ -77,7 +76,7 @@ function StateController() {
       const new_value = value > 1 ? value - 1 : 1;
       changePosition(new_value);
     },
-    [changePosition]
+    [changePosition],
   );
 
   const nextPosition = useCallback(
@@ -85,7 +84,7 @@ function StateController() {
       const new_value = value < 3 ? value + 1 : 3;
       changePosition(new_value);
     },
-    [changePosition]
+    [changePosition],
   );
 
   return (
@@ -111,7 +110,7 @@ function StateController() {
         className={_clx(styles.content, styles.content_two)}
         style={{ top: position3, opacity: opacity3 }}
       >
-        <StageThree changePositionHandle={changePosition} />
+        <StageThree />
       </animated.div>
     </main>
   );

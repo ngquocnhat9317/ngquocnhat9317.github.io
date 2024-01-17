@@ -1,4 +1,5 @@
 @use './_variables.scss' as v;
+@import './_variables.scss';
 
 .wrapper_content {
   height: 100%;
@@ -13,7 +14,7 @@
 .home_text {
   font-size: 60px;
   width: 70%;
-  color: rgb(113,94,144);
+  color: $text-color-1;
   text-align: center;
   position: absolute;
   top: 50%;
@@ -33,7 +34,7 @@
   bottom: 10px;
   width: 80%;
   transform: translateX(-50%);
-  color: #496252;
+  color: $text-color-2;
   text-align: center;
 
   @include v.mobile {
