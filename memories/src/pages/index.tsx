@@ -8,6 +8,7 @@ import Loading from "@/components/common/loading";
 import AudioWrapper from "@/components/common/audioWrapper";
 import useCheckAuth from "@/hooks/checkAuth";
 import { setLocalStage, setStage } from "@/redux/stageSlide";
+import Waiting from "@/components/common/waiting";
 
 const StateController = dynamic(() => import("@/components/stageController"), {
   loading: () => <Loading id='index' />,
@@ -17,6 +18,7 @@ type LoginState = "waiting" | "unauthenticated" | "authenticated";
 
 export default function Home() {
   const [localStageIndex, setLocalStageIndex] = useState<number>(0);
+  const [isItTime, setIsItTime] = useState<boolean>(false);
   const { isAuth: auth, isVerifying, triggerVerify } = useCheckAuth();
 
   const loginState = useMemo<LoginState>(() => {
@@ -28,15 +30,29 @@ export default function Home() {
   const dispatch = useDispatch();
 
   const ContentMemo = useMemo(() => {
+    if (!isItTime) return <Waiting />;
     if (loginState === "unauthenticated") return <LoginComponent triggerVerifyFunction={triggerVerify} />;
     if (loginState === "authenticated" &&localStageIndex !== 0) return <StateController />;
     return <Loading id='login' />;
-  }, [loginState, localStageIndex, triggerVerify]);
+  }, [loginState, localStageIndex, triggerVerify, isItTime]);
 
   useEffect(() => {
     setLocalStageIndex(1);
     dispatch(setLocalStage(1));
   }, [dispatch]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const current = new Date();
+      const birthday = new Date("1/18/2024");
+      if (current >= birthday) {
+        setIsItTime(true);
+        clearInterval(interval);
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     if (localStageIndex !== 0) dispatch(setStage(localStageIndex));

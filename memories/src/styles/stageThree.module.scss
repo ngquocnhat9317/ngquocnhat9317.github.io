@@ -1,0 +1,32 @@
+@use './_variables.scss' as v;
+@import './_variables.scss';
+
+$percent: 3.22581%;
+
+.wrapper_content {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .content {
+    width: 75%;
+
+    @include v.mobile {
+      width: calc(100% - 30px);
+    }
+
+    .text_paragraph {
+      font-size: 18px;
+      text-align: center;
+      color: $text-color-3;
+    }
+
+    .text_sign {
+      @extend .text_paragraph;
+      font-size: 26px;
+    }
+  }
+}

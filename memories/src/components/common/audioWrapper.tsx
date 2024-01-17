@@ -12,7 +12,9 @@ const AudioWrapper = memo((props: React.PropsWithChildren) => {
     }
   }, []);
 
-  return <div onClick={triggerPlayAudio}>{props.children}</div>;
+  return <div onClick={triggerPlayAudio} style={{
+    height: "100%",
+  }}>{props.children}</div>;
 });
 
 AudioWrapper.displayName = "AudioWrapper";
