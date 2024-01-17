@@ -18,7 +18,7 @@ type LoginState = "waiting" | "unauthenticated" | "authenticated";
 
 export default function Home() {
   const [localStageIndex, setLocalStageIndex] = useState<number>(0);
-  const [isItTime, setIsItTime] = useState<boolean>(false);
+  const [isItTime, setIsItTime] = useState<boolean>(new Date() >= new Date("1/18/2024"));
   const { isAuth: auth, isVerifying, triggerVerify } = useCheckAuth();
 
   const loginState = useMemo<LoginState>(() => {
