@@ -22,7 +22,7 @@ type ContentGroup = {
 
 export const IMAGE_KIT_URL = process.env.NEXT_PUBLIC_IMAGE_KIT ?? "";
 
-export const IMAGE_LIST_DEV: PageContent[] = [
+const IMAGE_LIST_DEV: PageContent[] = [
   {
     id: 1,
     path: "sample_1",

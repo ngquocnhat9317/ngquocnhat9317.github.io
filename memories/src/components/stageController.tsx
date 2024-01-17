@@ -110,7 +110,7 @@ function StateController(): JSX.Element {
         className={_clx(styles.content, styles.content_two)}
         style={{ top: position3, opacity: opacity3 }}
       >
-        <StageThree changePositionHandle={changePosition} />
+        <StageThree />
       </animated.div>
     </main>
   );
