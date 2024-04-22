@@ -1,17 +1,18 @@
 import localFont from "next/font/local";
 
-// // View at https://fonts.google.com/specimen/Dancing+Script?subset=vietnamese
-// export const DancingText = localFont({
-//   src: "./DancingScriptFont.ttf",
-//   display: "swap",
-//   preload: true,
-// });
+// View at https://fonts.google.com/specimen/Great+Vibes?subset=vietnamese
+export const GreatVibes = localFont({
+  src: "./GreatVibes.ttf",
+  display: "swap",
+  preload: true,
+});
 
-// // View at https://fonts.google.com/specimen/Crimson+Text?subset=vietnamese
-// export const CrimsonText = localFont({
-//   src: "./CrimsonTextFont.ttf",
-//   display: "swap",
-// });
+// View at https://fonts.google.com/specimen/Crimson+Text?subset=vietnamese
+export const CrimsonText = localFont({
+  src: "./CrimsonText.ttf",
+  display: "swap",
+  preload: true,
+});
 
 // // View at https://fonts.google.com/specimen/Pacifico?subset=vietnamese
 // export const PacificoText = localFont({

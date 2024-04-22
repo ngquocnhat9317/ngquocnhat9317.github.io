@@ -17,3 +17,13 @@
 body {
   color: rgb(var(--foreground-rgb));
 }
+
+section, main {
+  box-sizing: border-box;
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
