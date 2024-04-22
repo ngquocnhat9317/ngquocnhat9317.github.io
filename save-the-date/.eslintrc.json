@@ -28,7 +28,7 @@
     "comma-style": ["warn", "last"],
     "comma-dangle": ["warn", "always-multiline"],
     "quotes": ["warn", "double"],
-    "jsx-quotes": ["warn", "prefer-single"],
+    "jsx-quotes": ["warn", "prefer-double"],
     "camelcase": "off",
     "no-trailing-spaces": "warn",
     "space-before-blocks": "warn",

@@ -1,6 +1,6 @@
 function SectionTwo() {
   return (
-    <section className='h-full snap-always snap-center' />
+    <section className="h-full snap-always snap-center" />
   );
 }
 
