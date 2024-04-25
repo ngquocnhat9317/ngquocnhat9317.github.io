@@ -1,0 +1,10 @@
+.path_image {
+  // background-image: url("../../public/svg/path1.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.path_rotate {
+  transform: rotateX(0.5turn);
+}
