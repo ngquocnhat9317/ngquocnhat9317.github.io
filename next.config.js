@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const path = require("path");
+const StylelintPlugin = require("stylelint-webpack-plugin");
 
 const nextConfig = {
   reactStrictMode: true,
@@ -22,6 +23,10 @@ const nextConfig = {
     "rc-table",
     "rc-notification",
   ],
+  webpack: (config, options) => {
+    config.plugins.push(new StylelintPlugin());
+    return config;
+  },
 };
 
 module.exports = nextConfig;

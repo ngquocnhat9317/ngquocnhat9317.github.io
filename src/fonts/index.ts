@@ -14,12 +14,12 @@ export const CrimsonText = localFont({
   preload: true,
 });
 
-// // View at https://fonts.google.com/specimen/Pacifico?subset=vietnamese
-// export const PacificoText = localFont({
-//   src: "./PacificoFont.ttf",
-//   display: "swap",
-//   preload: true,
-// });
+// View at https://fonts.google.com/specimen/Carattere?subset=vietnamese
+export const CarattereText = localFont({
+  src: "./Carattere.ttf",
+  display: "swap",
+  preload: true,
+});
 
 // // View at https://fonts.google.com/specimen/Lobster?subset=vietnamese
 // export const LobsterText = localFont({

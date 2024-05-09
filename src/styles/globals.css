@@ -6,6 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --background-base: 252, 248, 247;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,9 +17,11 @@
 
 body {
   color: rgb(var(--foreground-rgb));
+  background-color: rgb(var(--background-base));
 }
 
-section, main {
+section,
+main {
   box-sizing: border-box;
 }
 
@@ -28,7 +31,9 @@ section, main {
   }
 }
 
-p, h1, h2 {
+p,
+h1,
+h2 {
   margin: 0;
   padding: 0;
 }

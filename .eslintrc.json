@@ -8,7 +8,8 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
-    "next"
+    "next",
+    "plugin:prettier/recommended"
   ],
   "settings": {
     "react": {
@@ -22,6 +23,8 @@
   },
   "plugins": ["@typescript-eslint", "react"],
   "rules": {
+    "max-len": ["warn", { "code": 120 }],
+    "react/react-in-jsx-scope": "off",
     "semi": ["warn", "always"],
     "no-console": ["error", { "allow": ["warn", "error"] }],
     "indent": ["warn", 2, { "SwitchCase": 1, "MemberExpression": 1 }],

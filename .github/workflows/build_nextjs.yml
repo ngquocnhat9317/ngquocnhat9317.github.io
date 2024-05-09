@@ -33,14 +33,14 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: "./save-the-date/"
+        working-directory: "./"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Detect package manager
         id: detect-package-manager
         run: |
-          if [ -f "${{ github.workspace }}/save-the-date/yarn.lock" ]; then
+          if [ -f "${{ github.workspace }}/yarn.lock" ]; then
             echo "manager=yarn" >> $GITHUB_OUTPUT
             echo "command=install" >> $GITHUB_OUTPUT
             echo "runner=yarn" >> $GITHUB_OUTPUT
@@ -54,7 +54,7 @@ jobs:
         with:
           node-version: "20"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
-          cache-dependency-path: "./save-the-date/yarn.lock"
+          cache-dependency-path: "./yarn.lock"
       - name: Setup Pages
         uses: actions/configure-pages@v4
         with:
@@ -80,7 +80,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: "./save-the-date/dist"
+          path: "./dist"
 
   # Deployment job
   deploy:
