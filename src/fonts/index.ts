@@ -21,11 +21,12 @@ export const CarattereText = localFont({
   preload: true,
 });
 
-// // View at https://fonts.google.com/specimen/Lobster?subset=vietnamese
-// export const LobsterText = localFont({
-//   src: "./LobsterFont.ttf",
-//   display: "swap",
-// });
+// View at https://fonts.google.com/specimen/Alex+Brush
+export const AlexBrushText = localFont({
+  src: "./AlexBrush.ttf",
+  display: "swap",
+  preload: true,
+});
 
 // // View at https://fonts.google.com/specimen/Signika+Negative?subset=vietnamese
 // export const SignikaNegativeText = localFont({
