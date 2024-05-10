@@ -1,6 +1,7 @@
+import { ReactNode, useMemo } from "react";
+
 import styles from "@/styles/SectionTwo.module.scss";
 import { _clsx } from "@/utilities/common";
-import { ReactNode, useMemo } from "react";
 
 type Props = {
   index: number;

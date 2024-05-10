@@ -1,6 +1,6 @@
-import { _clsx } from "@/utilities/common";
-import styles from "@/styles/SectionOne.module.scss";
 import { GreatVibes, CrimsonText } from "@/fonts/index";
+import styles from "@/styles/SectionOne.module.scss";
+import { _clsx } from "@/utilities/common";
 
 function SectionOne() {
   return (

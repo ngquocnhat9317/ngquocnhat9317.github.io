@@ -1,10 +1,11 @@
-import styles from "@/styles/SectionTwo.module.scss";
-import { _clsx } from "@/utilities/common";
-import SectionTwoWrapperContent from "./atomic/SectionTwoWrapperContent";
 import { useCallback, useEffect, useMemo, useState } from "react";
+
+import ImagesSlide from "@/components/atomic/ImagesSlide";
+import SectionTwoWrapperContent from "@/components/atomic/SectionTwoWrapperContent";
 import section_one from "@/content/section_one";
 import { AlexBrushText, CarattereText, CrimsonText } from "@/fonts";
-import ImagesSlide from "@/components/atomic/ImagesSlide";
+import styles from "@/styles/SectionTwo.module.scss";
+import { _clsx } from "@/utilities/common";
 
 type ButtonAnimation = {
   top: boolean;

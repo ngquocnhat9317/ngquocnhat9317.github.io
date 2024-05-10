@@ -1,5 +1,5 @@
-import { _clsx } from "@/utilities/common";
 import styles from "@/styles/ImagesSlide.module.scss";
+import { _clsx } from "@/utilities/common";
 
 function ImagesSlide() {
   return (

@@ -16,7 +16,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "react": [ "./node_modules/@types/react" ]
-    }
+    },
+    "baseUrl": "./"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js"],
   "exclude": ["node_modules"]
