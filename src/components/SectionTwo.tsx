@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { memo, useCallback, useEffect, useMemo, useState } from "react";
 
 import ImagesSlide from "@/components/atomic/ImagesSlide";
 import SectionTwoWrapperContent from "@/components/atomic/SectionTwoWrapperContent";
@@ -12,7 +12,7 @@ type ButtonAnimation = {
   bottom: boolean;
 };
 
-function SectionTwo() {
+const SectionTwo = memo(() => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [isFirst, setIsFirst] = useState<boolean>(true);
   const [buttonAnimation, setButtonAnimation] = useState<ButtonAnimation>({
@@ -72,6 +72,7 @@ function SectionTwo() {
         "h-full snap-always snap-center box-border w-full flex justify-center mx-auto",
         styles.section_two_background,
       )}
+      id="section_two"
     >
       <div className="h-full w-full sm:w-[90%] md:w-4/5 flex justify-center items-center flex-col">
         <button
@@ -205,6 +206,8 @@ function SectionTwo() {
       </div>
     </section>
   );
-}
+});
+
+SectionTwo.displayName = "SectionTwo";
 
 export default SectionTwo;

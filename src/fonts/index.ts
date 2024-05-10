@@ -28,11 +28,12 @@ export const AlexBrushText = localFont({
   preload: true,
 });
 
-// // View at https://fonts.google.com/specimen/Signika+Negative?subset=vietnamese
-// export const SignikaNegativeText = localFont({
-//   src: "./SignikaNegativeFont.ttf",
-//   display: "swap",
-// });
+// View at https://fonts.google.com/specimen/Cabin?subset=vietnamese
+export const CabinText = localFont({
+  src: "./Cabin.ttf",
+  display: "swap",
+  preload: true,
+});
 
 // // View at https://fonts.google.com/specimen/Baloo+Bhaijaan+2?subset=vietnamese
 // export const BalooText = localFont({

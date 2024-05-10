@@ -1,10 +1,15 @@
+import { memo } from "react";
+
 import { GreatVibes, CrimsonText } from "@/fonts/index";
 import styles from "@/styles/SectionOne.module.scss";
 import { _clsx } from "@/utilities/common";
 
-function SectionOne() {
+const SectionOne = memo(() => {
   return (
-    <section className="h-full snap-always snap-center box-border w-full lg:w-4/5 flex justify-center mx-auto">
+    <section
+      className="h-full snap-always snap-center box-border w-full lg:w-4/5 flex justify-center mx-auto"
+      id="section_one"
+    >
       <div className="hidden md:w-1/2 md:flex justify-center">
         <article
           className={_clsx(
@@ -40,6 +45,8 @@ function SectionOne() {
       </div>
     </section>
   );
-}
+});
+
+SectionOne.displayName = "SectionOne";
 
 export default SectionOne;
