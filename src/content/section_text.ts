@@ -1,9 +1,13 @@
-const section_one = {
+const section_text = {
   guideline: "Bạn hãy nhấn vào khu vực bên dưới để xem tiếp câu chuyện của chúng tôi.",
-  about_him: "Tô hay còn gọi là Quắc Tô, 1 chiếc DEV yêu nghề nhưng cực kỳ simp vợ. Cực kỳ vô tree khi ở bên em.",
+  about_him:
+    "Tô hay còn gọi là Quắc Tô, 1 chiếc DEV yêu nghề nhưng cực kỳ simp vợ. " +
+    "Cực kỳ vô tree khi ở bên Ngáo. Gia trưởng... nhưng gia trưởng trong công việc nhà, " +
+    "tất cả để đó cho anh làm.",
   about_her:
-    "Thị Ngáo, con cá ngựa, con cò, con rùa, con chihuahua... của Quắc Tô. " +
-    "1 chiếc vợ yêu anh nhưng không yêu nghề. Mỏ hỗn nhưng chỉ dám hỗn với anh.",
+    "Thị Ngáo là con cá ngựa, con cò, con rùa, con chihuahua... của Quắc Tô. " +
+    "1 chiếc vợ yêu anh nhưng không yêu nghề. Mỏ hỗn nhưng chỉ dám hỗn với anh. " +
+    "Có sở thích chọt rốn, thích ngủ và ngủ...",
   text_1:
     "Như bao cặp đôi khác, trước khi về chung một nhà chúng tôi đã trải qua 1 thời gian yêu nhau đầy sóng gió " +
     "(sóng gió của sự vô tree).",
@@ -26,4 +30,4 @@ const section_one = {
   text_9: "Và giờ đây chúng tôi đã về 1 nhà với nhau.",
 };
 
-export default section_one;
+export default section_text;

@@ -1,6 +1,6 @@
 import { ReactNode, useMemo } from "react";
 
-import styles from "@/styles/SectionTwo.module.scss";
+import styles from "@/styles/SectionThree.module.scss";
 import { _clsx } from "@/utilities/common";
 
 type Props = {

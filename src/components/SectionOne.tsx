@@ -3,12 +3,13 @@ import { memo } from "react";
 import { GreatVibes, CrimsonText } from "@/fonts/index";
 import styles from "@/styles/SectionOne.module.scss";
 import { _clsx } from "@/utilities/common";
+import { HEADER } from "@/utilities/constant";
 
 const SectionOne = memo(() => {
   return (
     <section
       className="h-full snap-always snap-center box-border w-full lg:w-4/5 flex justify-center mx-auto"
-      id="section_one"
+      id={HEADER.section_1.id}
     >
       <div className="hidden md:w-1/2 md:flex justify-center">
         <article
