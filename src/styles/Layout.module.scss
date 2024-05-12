@@ -1,0 +1,18 @@
+.icon {
+  cursor: pointer;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &_burger {
+    background-image: url("/svg/menu.svg");
+  }
+
+  &_play {
+    background-image: url("/svg/play-button.svg");
+  }
+
+  &_close {
+    background-image: url("/svg/close.svg");
+  }
+}

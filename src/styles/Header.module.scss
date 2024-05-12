@@ -6,3 +6,14 @@
   color: rgb(var(--nice-text-rgb));
   cursor: pointer;
 }
+
+.aside {
+  left: 100%;
+  background-color: rgb(var(--background-base));
+  z-index: 99;
+  transition: left 0.3s linear;
+
+  &_show {
+    left: 0;
+  }
+}
