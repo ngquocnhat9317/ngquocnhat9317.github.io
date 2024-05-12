@@ -24,7 +24,8 @@ const section_text = {
   text_6:
     "Yêu nhau nhiều, giận nhau cũng nhiều. " +
     "Nhiều hôm không nói chuyện với nhau. " +
-    "Nhưng vẫn luôn nhớ về nhau rất nhiều.",
+    "Nhưng vẫn luôn nhớ về nhau rất nhiều " +
+    "(Đặng Trần Côn, Hà Nội, nơi chưa nhiều kỷ niệm với em).",
   text_7: "Ngày 2 đứa yêu xa được về gần với nhau, cũng là ngày 2 đứa cảm thấy hạnh phúc nhất.",
   text_8: "Nếu yêu xa là 1 thử thách đối với 2 đứa thì yêu gần chính là trải nghiệm chưa từng có.",
   text_9: "Và giờ đây chúng tôi đã về 1 nhà với nhau.",

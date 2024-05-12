@@ -1,11 +1,11 @@
 import Head from "next/head";
 import React, { ReactNode, memo, useState } from "react";
 
+import MusicBox from "@/components/atomic/MusicBox";
 import Header from "@/components/header";
+import SideBar from "@/components/sidebar";
 import styles from "@/styles/Layout.module.scss";
 import { _clsx } from "@/utilities/common";
-
-import SideBar from "../sidebar";
 
 type LayoutProps = {
   children: ReactNode;
@@ -28,16 +28,7 @@ const DefaultLayout = memo(({ children }: LayoutProps) => {
         <Header />
         <main className="w-full h-full md:h-[calc(100%-50px)]">{children}</main>
         <SideBar toggle={toggle} setToggle={setToggle} />
-        <button
-          type="button"
-          className={_clsx(
-            "absolute bottom-[65px] right-[15px] md:bottom-[15px]",
-            "w-[35px] h-[35px]",
-            "opacity-70 md:opacity-50 md:hover:opacity-70",
-            styles.icon,
-            styles.icon_play,
-          )}
-        />
+        <MusicBox />
         <button
           type="button"
           className={_clsx(

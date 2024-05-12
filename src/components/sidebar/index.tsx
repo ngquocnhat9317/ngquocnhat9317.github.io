@@ -8,7 +8,7 @@ import { HEADER } from "@/utilities/constant";
 
 type SideBarProps = {
   toggle: boolean;
-  setToggle: (data: boolean) => void;
+  setToggle: (_data: boolean) => void;
 };
 
 const SideBar = memo(({ toggle, setToggle }: SideBarProps) => {
@@ -27,7 +27,7 @@ const SideBar = memo(({ toggle, setToggle }: SideBarProps) => {
         behavior: "smooth",
       });
     },
-    [],
+    [setToggle],
   );
 
   return (

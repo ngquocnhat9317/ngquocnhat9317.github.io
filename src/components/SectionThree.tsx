@@ -18,6 +18,10 @@ type StoryTextProps = {
   children: ReactNode;
 };
 
+type StoryImageProps = {
+  src: string;
+};
+
 const SectionThree = memo(() => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [isFirst, setIsFirst] = useState<boolean>(true);
@@ -99,57 +103,49 @@ const SectionThree = memo(() => {
           )}
         >
           <SectionTwoWrapperContent index={0} currentIndex={currentIndex}>
-            <>
-              <Image
-                className="w-[90%] max-w-[320px] aspect-square rounded-md mb-[30px] lg:mb-0 mt-[-50px] lg:mt-0"
-                src="images/IMG_20200218_093753.jpg"
-                alt=""
-                width={350}
-                height={350}
-                placeholder="blur"
-                blurDataURL={BLUR_URL}
-              />
-              <StoryText>{section_text.text_1}</StoryText>
-            </>
+            <StoryImage src="images/story_1.jpg" />
+            <StoryText>{section_text.text_1}</StoryText>
           </SectionTwoWrapperContent>
+
           <SectionTwoWrapperContent index={1} currentIndex={currentIndex}>
-            <>
-              <Image
-                className="w-[90%] max-w-[320px] aspect-square rounded-md mb-[30px] lg:mb-0 mt-[-50px] lg:mt-0"
-                src="images/IMG_20200222_155127.jpg"
-                alt=""
-                width={350}
-                height={350}
-                placeholder="blur"
-                blurDataURL={BLUR_URL}
-              />
-              <StoryText>{section_text.text_2}</StoryText>
-            </>
+            <StoryImage src="images/story_2.jpg" />
+            <StoryText>{section_text.text_2}</StoryText>
           </SectionTwoWrapperContent>
+
           <SectionTwoWrapperContent index={2} currentIndex={currentIndex}>
-            <>
-              <ImagesSlide />
-              <StoryText>{section_text.text_3}</StoryText>
-            </>
+            <ImagesSlide />
+            <StoryText>{section_text.text_3}</StoryText>
           </SectionTwoWrapperContent>
+
           <SectionTwoWrapperContent index={3} currentIndex={currentIndex}>
+            <StoryImage src="images/story_4.jpg" />
             <StoryText>{section_text.text_4}</StoryText>
           </SectionTwoWrapperContent>
+
           <SectionTwoWrapperContent index={4} currentIndex={currentIndex}>
+            <StoryImage src="images/story_5.jpg" />
             <StoryText>{section_text.text_5}</StoryText>
           </SectionTwoWrapperContent>
+
           <SectionTwoWrapperContent index={5} currentIndex={currentIndex}>
+            <StoryImage src="images/story_6.jpeg" />
             <StoryText>{section_text.text_6}</StoryText>
           </SectionTwoWrapperContent>
+
           <SectionTwoWrapperContent index={6} currentIndex={currentIndex}>
+            <StoryImage src="images/story_7.jpg" />
             <StoryText>{section_text.text_7}</StoryText>
           </SectionTwoWrapperContent>
+
           <SectionTwoWrapperContent index={7} currentIndex={currentIndex}>
+            <StoryImage src="images/story_8.jpg" />
             <StoryText>{section_text.text_8}</StoryText>
           </SectionTwoWrapperContent>
+
           <SectionTwoWrapperContent index={8} currentIndex={currentIndex}>
             <StoryText>{section_text.text_9}</StoryText>
           </SectionTwoWrapperContent>
+
           <div className="absolute bottom-[5px] md:bottom-[10px] left-[50%] translate-x-[-50%] w-[calc(100%-30px)]">
             <p
               className={_clsx(
@@ -189,10 +185,6 @@ const SectionThree = memo(() => {
   );
 });
 
-SectionThree.displayName = "SectionThree";
-
-export default SectionThree;
-
 const StoryText = memo(({ children }: StoryTextProps) => {
   return (
     <p
@@ -203,4 +195,27 @@ const StoryText = memo(({ children }: StoryTextProps) => {
   );
 });
 
+const StoryImage = memo(({ src }: StoryImageProps) => {
+  return (
+    <Image
+      className="w-[90%] max-w-[320px] aspect-square rounded-md mb-[30px] lg:mb-0 mt-[-50px] lg:mt-0 bg-white"
+      src={src}
+      alt=""
+      width={350}
+      height={350}
+      placeholder="blur"
+      blurDataURL={BLUR_URL}
+      style={{
+        objectFit: "contain",
+      }}
+    />
+  );
+});
+
 StoryText.displayName = "StoryText";
+
+StoryImage.displayName = "StoryImage";
+
+SectionThree.displayName = "SectionThree";
+
+export default SectionThree;

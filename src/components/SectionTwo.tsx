@@ -26,7 +26,7 @@ const SectionTwo = memo(() => {
             "flex",
           )}
         >
-          <img className="aspect-square h-[160px] rounded-full" src="images/IMG_9323.jpg" alt="" />
+          <img className="aspect-square h-[160px] rounded-full" src="images/him.jpg" alt="" />
           <p className={_clsx("m-[10px]", CrimsonText.className, styles.about_text)}>{section_text.about_him}</p>
         </div>
         <div
@@ -40,7 +40,7 @@ const SectionTwo = memo(() => {
           )}
         >
           <p className={_clsx("m-[10px]", CrimsonText.className, styles.about_text)}>{section_text.about_her}</p>
-          <img className="aspect-square h-[160px] rounded-full ml-auto" src="images/IMG_9283.jpg" alt="" />
+          <img className="aspect-square h-[160px] rounded-full ml-auto" src="images/her.jpg" alt="" />
         </div>
       </div>
     </section>
