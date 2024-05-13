@@ -1,3 +1,4 @@
+import SectionFive from "@/components/SectionFive";
 import SectionFour from "@/components/SectionFour";
 import SectionOne from "@/components/SectionOne";
 import SectionThree from "@/components/SectionThree";
@@ -10,6 +11,7 @@ export default function Home() {
       <SectionTwo />
       <SectionThree />
       <SectionFour />
+      <SectionFive />
     </div>
   );
 }

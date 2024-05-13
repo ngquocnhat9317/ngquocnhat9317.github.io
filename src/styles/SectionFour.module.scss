@@ -1,5 +1,19 @@
-.text_header {
-  color: rgb(var(--nice-text-rgb));
+.section {
+  & h2, h3, p {
+    color: #1b1612;
+  }
+
+  .text_header {
+    color: rgb(var(--nice-text-rgb));
+  }
+
+  .text_address {
+    color: #d96f6f;
+  }
+
+  .wedding_date {
+    color: #846860;
+  }
 }
 
 .bottom_stick {

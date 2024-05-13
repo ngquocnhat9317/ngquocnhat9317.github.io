@@ -11,7 +11,6 @@ type HeaderSection = {
   section_3: Section;
   section_4: Section;
   section_5: Section;
-  section_6: Section;
 };
 
 export const HEADER: HeaderSection = {
@@ -34,10 +33,6 @@ export const HEADER: HeaderSection = {
   section_5: {
     label: "Tiền mừng",
     id: "section_five",
-  },
-  section_6: {
-    label: "Lời chúc",
-    id: "section_six",
   },
 };
 

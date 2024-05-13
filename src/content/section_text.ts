@@ -18,7 +18,7 @@ const section_text = {
   text_3:
     "Những lần \u0022trốn\u0022 về Đà Nẵng để thăm em. " +
     "Là những lúc hạnh phúc nhất của 2 đứa. " +
-    "Tay trong tay trên mọi nẽo đường.",
+    "Tay trong tay trên mọi nẻo đường.",
   text_4: "Dù ở xa cũng không khiến 2 đứa trở nên xa cách nhau.",
   text_5: "Những chiếc vé máy bay ngày một nhiều, " + "là bằng chứng tình yêu của 2 đứa trong suốt thời gian yêu xa.",
   text_6:

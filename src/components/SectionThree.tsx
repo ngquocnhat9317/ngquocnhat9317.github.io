@@ -54,8 +54,10 @@ const SectionThree = memo(() => {
   }, [minIndex, currentIndex]);
 
   useEffect(() => {
+    let bottomTimeout: NodeJS.Timeout | undefined = undefined;
+    let topTimeout: NodeJS.Timeout | undefined = undefined;
     if (buttonAnimation.bottom) {
-      setTimeout(
+      bottomTimeout = setTimeout(
         () =>
           setButtonAnimation((state: ButtonAnimation) => ({
             ...state,
@@ -65,7 +67,7 @@ const SectionThree = memo(() => {
       );
     }
     if (buttonAnimation.top) {
-      setTimeout(
+      topTimeout = setTimeout(
         () =>
           setButtonAnimation((state: ButtonAnimation) => ({
             ...state,
@@ -74,6 +76,10 @@ const SectionThree = memo(() => {
         1000,
       );
     }
+    return () => {
+      clearTimeout(bottomTimeout);
+      clearTimeout(topTimeout);
+    };
   }, [buttonAnimation]);
 
   return (
