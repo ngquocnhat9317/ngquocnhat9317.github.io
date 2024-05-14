@@ -28,7 +28,13 @@ const section_text = {
     "(Đặng Trần Côn, Hà Nội, nơi chưa nhiều kỷ niệm với em).",
   text_7: "Ngày 2 đứa yêu xa được về gần với nhau, cũng là ngày 2 đứa cảm thấy hạnh phúc nhất.",
   text_8: "Nếu yêu xa là 1 thử thách đối với 2 đứa thì yêu gần chính là trải nghiệm chưa từng có.",
-  text_9: "Và giờ đây chúng tôi đã về 1 nhà với nhau.",
+  text_9: "Không lâu sau đó, tôi đã chính thức cầu hôn cô ấy. Và nhận được lời \u0022said yes\u0022.",
+  text_10:
+    "Lễ đính hôn của 2 đứa. Đây là bước đầu tiên để chúng tôi có thể chính thức đến với nhau " +
+    "(Yeeah!! Sắp có được cô ấy rồi).",
+  text_11:
+    "Và giờ đây, sau suốt thời gian dài yêu nhau, trải qua nhiều vui buồn. " +
+    "Chúng tôi đã chính thức về chung một nhà.",
 };
 
 export default section_text;

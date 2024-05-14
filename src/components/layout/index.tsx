@@ -24,7 +24,7 @@ const DefaultLayout = memo(({ children }: LayoutProps) => {
         <meta property="og:site_name" content="Save the date - Quốc Nhật & Thuỳ Trang - 26/05/2024" />
         <meta
           property="og:image"
-          content="https://ik.imagekit.io/ngquocnhat9317/tr:w-1200,h-630/save_the_date/thumbnail.jpg"
+          content="https://ik.imagekit.io/ngquocnhat9317/tr:q-80,w-1200,h-630,cm-pad_resize,bg-blurred/save_the_date/thumbnail.jpg"
         />
         <meta name="description" content="Đây là 1 chiếc thiệp cưới của Quắc Tô và Thị Ngáo" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

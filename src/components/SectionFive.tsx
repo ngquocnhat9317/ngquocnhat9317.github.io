@@ -15,7 +15,7 @@ const SectionFive = memo(() => {
   return (
     <section
       className={_clsx(
-        "h-full snap-always snap-center box-border w-full lg:w-4/5",
+        "h-full snap-always snap-center box-border w-full",
         "flex justify-center items-center",
         "mx-auto bg-[#edd6c2]",
       )}
@@ -23,7 +23,7 @@ const SectionFive = memo(() => {
     >
       <div
         className={_clsx(
-          "h-[90%] md:h-[80%] w-[90%] relative",
+          "h-[90%] md:h-[80%] w-[90%] lg:w-3/4 relative",
           "bg-[#fcf8f7] rounded-lg",
           "flex justify-center items-center flex-col md:flex-row",
         )}
@@ -75,7 +75,13 @@ const BankInfoRow = memo(({ content }: BankInfoRowProps) => {
           "rounded-md border-solid border-[#846860] border-2",
         )}
       >
-        <p className={_clsx("text-center m-0 font-bold text-[]", CrimsonText.className, stylesSectionThree.text_story)}>
+        <p
+          className={_clsx(
+            "text-center m-0 font-bold text-[#333]",
+            CrimsonText.className,
+            stylesSectionThree.text_story,
+          )}
+        >
           {content}
         </p>
       </div>

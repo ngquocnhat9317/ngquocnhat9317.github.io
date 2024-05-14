@@ -6,7 +6,7 @@ import { _clsx } from "@/utilities/common";
 import { HEADER } from "@/utilities/constant";
 
 const SectionFour = memo(() => {
-  const [isLeft, setIsLeft] = useState<boolean>(true);
+  const [isLeft, setIsLeft] = useState<boolean>(false);
 
   const chooseLeft = useCallback(() => {
     setIsLeft(true);
@@ -19,36 +19,21 @@ const SectionFour = memo(() => {
   return (
     <section
       className={_clsx(
-        "h-full snap-always snap-center box-border w-full lg:w-4/5",
+        "h-full snap-always snap-center box-border w-full",
         "flex justify-center items-center",
         "mx-auto bg-[#edd6c2]",
         styles.section,
       )}
       id={HEADER.section_4.id}
     >
-      <div className="h-[90%] md:h-[80%] w-[90%] bg-[#fcf8f7] rounded-lg flex items-center flex-col">
-        <div className="flex justify-around items-center mt-[10px] pb-[3px] relative">
-          <h3
-            className={_clsx("mr-[20px] w-[110px] text-[20px] text-center", styles.text_header, CabinText.className)}
-            onClick={chooseLeft}
-          >
-            Tiệc nhà gái
-          </h3>
-          <h3
-            className={_clsx("w-[110px] text-[20px] text-center", styles.text_header, CabinText.className)}
-            onClick={chooseRight}
-          >
-            Tiệc nhà trai
-          </h3>
-          <div
-            className={_clsx(
-              "absolute w-[110px] h-[3px] bottom-0 bg-[#846860]",
-              isLeft ? "left-0" : "left-[calc(100%-110px)]",
-              styles.bottom_stick,
-            )}
-          />
-        </div>
-        <div className="mt-[40px]">
+      <div
+        className={_clsx(
+          "h-[90%] md:h-[80%] w-[90%] lg:w-3/4",
+          "bg-[#fcf8f7] rounded-lg",
+          "flex items-center flex-col",
+        )}
+      >
+        <div className="mt-[120px] md:mt-[40px]">
           <h3 className={_clsx(CrimsonText.className, "text-[18px] text-center")}>
             <b>Trân trọng kính mời:</b>
           </h3>

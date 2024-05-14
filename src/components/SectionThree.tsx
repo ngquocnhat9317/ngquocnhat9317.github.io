@@ -30,7 +30,7 @@ const SectionThree = memo(() => {
     bottom: false,
   });
 
-  const [minIndex, maxIndex] = useMemo(() => [0, 8], []);
+  const [minIndex, maxIndex] = useMemo(() => [0, 10], []);
 
   const pressNext = useCallback(() => {
     if (currentIndex < maxIndex) {
@@ -108,6 +108,7 @@ const SectionThree = memo(() => {
             "bg-[#fcf8f7ed] rounded-lg shadow-md",
           )}
         >
+          <Points index={currentIndex} maxIndex={maxIndex} />
           <SectionTwoWrapperContent index={0} currentIndex={currentIndex}>
             <StoryImage src="images/story_1.jpg" />
             <StoryText>{section_text.text_1}</StoryText>
@@ -119,7 +120,15 @@ const SectionThree = memo(() => {
           </SectionTwoWrapperContent>
 
           <SectionTwoWrapperContent index={2} currentIndex={currentIndex}>
-            <ImagesSlide />
+            <ImagesSlide
+              listImages={[
+                "images/slide_1.jpg",
+                "images/slide_2.jpg",
+                "images/slide_3.jpg",
+                "images/slide_4.jpg",
+                "images/slide_5.jpg",
+              ]}
+            />
             <StoryText>{section_text.text_3}</StoryText>
           </SectionTwoWrapperContent>
 
@@ -144,12 +153,37 @@ const SectionThree = memo(() => {
           </SectionTwoWrapperContent>
 
           <SectionTwoWrapperContent index={7} currentIndex={currentIndex}>
-            <StoryImage src="images/story_8.jpg" />
+            <ImagesSlide
+              listImages={[
+                "images/story_8_1.jpg",
+                "images/story_8_2.jpg",
+                "images/story_8_3.jpg",
+                "images/story_8_4.jpg",
+                "images/story_8_5.jpg",
+              ]}
+            />
             <StoryText>{section_text.text_8}</StoryText>
           </SectionTwoWrapperContent>
 
           <SectionTwoWrapperContent index={8} currentIndex={currentIndex}>
+            <StoryImage src="images/story_9.jpg" />
             <StoryText>{section_text.text_9}</StoryText>
+          </SectionTwoWrapperContent>
+          <SectionTwoWrapperContent index={9} currentIndex={currentIndex}>
+            <StoryImage src="images/story_add.jpg" />
+            <StoryText>{section_text.text_10}</StoryText>
+          </SectionTwoWrapperContent>
+          <SectionTwoWrapperContent index={10} currentIndex={currentIndex}>
+            <ImagesSlide
+              listImages={[
+                "images/story_10_1.jpg",
+                "images/story_10_2.jpg",
+                "images/story_10_3.jpg",
+                "images/story_10_4.jpg",
+                "images/story_10_5.jpg",
+              ]}
+            />
+            <StoryText>{section_text.text_11}</StoryText>
           </SectionTwoWrapperContent>
 
           <div className="absolute bottom-[5px] md:bottom-[10px] left-[50%] translate-x-[-50%] w-[calc(100%-30px)]">
@@ -217,6 +251,26 @@ const StoryImage = memo(({ src }: StoryImageProps) => {
     />
   );
 });
+
+const Points = memo(({ index, maxIndex }: Readonly<{ index: number; maxIndex: number }>) => {
+  return (
+    <div className="absolute right-[5px] top-[50%] -translate-y-[50%] grid gap-[8px]">
+      {Array(maxIndex + 1)
+        .fill(0)
+        .map((_, _index) => (
+          <div
+            key={_index}
+            className={_clsx(
+              "h-[10px] w-[8px] rounded-[4px] bg-[#5c5c44] opacity-30",
+              _index === index && "!opacity-100",
+            )}
+          />
+        ))}
+    </div>
+  );
+});
+
+Points.displayName = "Points";
 
 StoryText.displayName = "StoryText";
 
