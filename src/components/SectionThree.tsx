@@ -110,77 +110,77 @@ const SectionThree = memo(() => {
         >
           <Points index={currentIndex} maxIndex={maxIndex} />
           <SectionTwoWrapperContent index={0} currentIndex={currentIndex}>
-            <StoryImage src="images/story_1.jpg" />
+            <StoryImage src="https://ik.imagekit.io/ngquocnhat9317/tr:q-70/save_the_date/images/story_1.jpg" />
             <StoryText>{section_text.text_1}</StoryText>
           </SectionTwoWrapperContent>
 
           <SectionTwoWrapperContent index={1} currentIndex={currentIndex}>
-            <StoryImage src="images/story_2.jpg" />
+            <StoryImage src="https://ik.imagekit.io/ngquocnhat9317/tr:q-70/save_the_date/images/story_2.jpg" />
             <StoryText>{section_text.text_2}</StoryText>
           </SectionTwoWrapperContent>
 
           <SectionTwoWrapperContent index={2} currentIndex={currentIndex}>
             <ImagesSlide
               listImages={[
-                "images/slide_1.jpg",
-                "images/slide_2.jpg",
-                "images/slide_3.jpg",
-                "images/slide_4.jpg",
-                "images/slide_5.jpg",
+                "https://ik.imagekit.io/ngquocnhat9317/tr:q-70/save_the_date/images/slide_1.jpg",
+                "https://ik.imagekit.io/ngquocnhat9317/tr:q-70/save_the_date/images/slide_2.jpg",
+                "https://ik.imagekit.io/ngquocnhat9317/tr:q-70/save_the_date/images/slide_3.jpg",
+                "https://ik.imagekit.io/ngquocnhat9317/tr:q-70/save_the_date/images/slide_4.jpg",
+                "https://ik.imagekit.io/ngquocnhat9317/tr:q-70/save_the_date/images/slide_5.jpg",
               ]}
             />
             <StoryText>{section_text.text_3}</StoryText>
           </SectionTwoWrapperContent>
 
           <SectionTwoWrapperContent index={3} currentIndex={currentIndex}>
-            <StoryImage src="images/story_4.jpg" />
+            <StoryImage src="https://ik.imagekit.io/ngquocnhat9317/tr:q-70/save_the_date/images/story_4.jpg" />
             <StoryText>{section_text.text_4}</StoryText>
           </SectionTwoWrapperContent>
 
           <SectionTwoWrapperContent index={4} currentIndex={currentIndex}>
-            <StoryImage src="images/story_5.jpg" />
+            <StoryImage src="https://ik.imagekit.io/ngquocnhat9317/tr:q-70/save_the_date/images/story_5.jpg" />
             <StoryText>{section_text.text_5}</StoryText>
           </SectionTwoWrapperContent>
 
           <SectionTwoWrapperContent index={5} currentIndex={currentIndex}>
-            <StoryImage src="images/story_6.jpeg" />
+            <StoryImage src="https://ik.imagekit.io/ngquocnhat9317/tr:q-70/save_the_date/images/story_6.jpeg" />
             <StoryText>{section_text.text_6}</StoryText>
           </SectionTwoWrapperContent>
 
           <SectionTwoWrapperContent index={6} currentIndex={currentIndex}>
-            <StoryImage src="images/story_7.jpg" />
+            <StoryImage src="https://ik.imagekit.io/ngquocnhat9317/tr:q-70/save_the_date/images/story_7.jpg" />
             <StoryText>{section_text.text_7}</StoryText>
           </SectionTwoWrapperContent>
 
           <SectionTwoWrapperContent index={7} currentIndex={currentIndex}>
             <ImagesSlide
               listImages={[
-                "images/story_8_1.jpg",
-                "images/story_8_2.jpg",
-                "images/story_8_3.jpg",
-                "images/story_8_4.jpg",
-                "images/story_8_5.jpg",
+                "https://ik.imagekit.io/ngquocnhat9317/tr:q-70/save_the_date/images/story_8_1.jpg",
+                "https://ik.imagekit.io/ngquocnhat9317/tr:q-70/save_the_date/images/story_8_2.jpg",
+                "https://ik.imagekit.io/ngquocnhat9317/tr:q-70/save_the_date/images/story_8_3.jpg",
+                "https://ik.imagekit.io/ngquocnhat9317/tr:q-70/save_the_date/images/story_8_4.jpg",
+                "https://ik.imagekit.io/ngquocnhat9317/tr:q-70/save_the_date/images/story_8_5.jpg",
               ]}
             />
             <StoryText>{section_text.text_8}</StoryText>
           </SectionTwoWrapperContent>
 
           <SectionTwoWrapperContent index={8} currentIndex={currentIndex}>
-            <StoryImage src="images/story_9.jpg" />
+            <StoryImage src="https://ik.imagekit.io/ngquocnhat9317/tr:q-70/save_the_date/images/story_9.jpg" />
             <StoryText>{section_text.text_9}</StoryText>
           </SectionTwoWrapperContent>
           <SectionTwoWrapperContent index={9} currentIndex={currentIndex}>
-            <StoryImage src="images/story_add.jpg" />
+            <StoryImage src="https://ik.imagekit.io/ngquocnhat9317/tr:q-70/save_the_date/images/story_add.jpg" />
             <StoryText>{section_text.text_10}</StoryText>
           </SectionTwoWrapperContent>
           <SectionTwoWrapperContent index={10} currentIndex={currentIndex}>
             <ImagesSlide
               listImages={[
-                "images/story_10_1.jpg",
-                "images/story_10_2.jpg",
-                "images/story_10_3.jpg",
-                "images/story_10_4.jpg",
-                "images/story_10_5.jpg",
+                "https://ik.imagekit.io/ngquocnhat9317/tr:q-50/save_the_date/images/story_10_1.jpg",
+                "https://ik.imagekit.io/ngquocnhat9317/tr:q-50/save_the_date/images/story_10_2.jpg",
+                "https://ik.imagekit.io/ngquocnhat9317/tr:q-50/save_the_date/images/story_10_3.jpg",
+                "https://ik.imagekit.io/ngquocnhat9317/tr:q-50/save_the_date/images/story_10_4.jpg",
+                "https://ik.imagekit.io/ngquocnhat9317/tr:q-50/save_the_date/images/story_10_5.jpg",
               ]}
             />
             <StoryText>{section_text.text_11}</StoryText>
