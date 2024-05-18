@@ -5,7 +5,7 @@ import { CrimsonText } from "@/fonts";
 import stylesLayout from "@/styles/Layout.module.scss";
 import stylesSectionThree from "@/styles/SectionThree.module.scss";
 import { _clsx } from "@/utilities/common";
-import { HEADER } from "@/utilities/constant";
+import { BLUR_URL, HEADER } from "@/utilities/constant";
 
 type BankInfoRowProps = {
   content: string;
@@ -28,15 +28,21 @@ const SectionFive = memo(() => {
           "flex justify-center items-center flex-col md:flex-row",
         )}
       >
-        <div
+        <Image
           className={_clsx(
             "h-[300px] w-[300px] m-[20px]",
-            "rounded-lg relative overflow-hidden",
-            "border-solid border-[#846860] border-2",
+            "aspect-square rounded-lg bg-white border-solid border-[#846860] border-2",
           )}
-        >
-          <Image src="images/qr_code.jpg" alt="" fill />
-        </div>
+          src="images/qr_code.jpg"
+          alt=""
+          width={350}
+          height={350}
+          placeholder="blur"
+          blurDataURL={BLUR_URL}
+          style={{
+            objectFit: "contain",
+          }}
+        />
 
         <div className="w-[300px] h-[140px] grid grid-cols-6 gap-[10px]">
           <BankInfoRow content="TECHCOMBANK" />

@@ -1,20 +1,12 @@
-import { memo, useCallback, useState } from "react";
+import { memo, useMemo } from "react";
 
-import { CrimsonText, CabinText, AlexBrushText } from "@/fonts";
+import { CrimsonText, AlexBrushText } from "@/fonts";
 import styles from "@/styles/SectionFour.module.scss";
 import { _clsx } from "@/utilities/common";
 import { HEADER } from "@/utilities/constant";
 
 const SectionFour = memo(() => {
-  const [isLeft, setIsLeft] = useState<boolean>(false);
-
-  const chooseLeft = useCallback(() => {
-    setIsLeft(true);
-  }, []);
-
-  const chooseRight = useCallback(() => {
-    setIsLeft(false);
-  }, []);
+  const isLeft = useMemo<boolean>(() => false, []);
 
   return (
     <section

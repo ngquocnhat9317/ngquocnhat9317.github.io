@@ -1,30 +1,25 @@
-import Image from "next/image";
-import { ReactNode, memo, useCallback, useEffect, useMemo, useState } from "react";
+import { memo, useCallback, useEffect, useMemo, useState } from "react";
 
 import ImagesSlide from "@/components/atomic/ImagesSlide";
+import Points from "@/components/atomic/Points";
 import SectionTwoWrapperContent from "@/components/atomic/SectionTwoWrapperContent";
+import StoryImage from "@/components/atomic/StoryImage";
+import StoryText from "@/components/atomic/StoryText";
 import section_text from "@/content/section_text";
-import { AlexBrushText, CarattereText, CrimsonText } from "@/fonts";
+import { AlexBrushText, CrimsonText } from "@/fonts";
 import styles from "@/styles/SectionThree.module.scss";
 import { _clsx } from "@/utilities/common";
-import { BLUR_URL, HEADER } from "@/utilities/constant";
+import { HEADER } from "@/utilities/constant";
 
 type ButtonAnimation = {
   top: boolean;
   bottom: boolean;
 };
 
-type StoryTextProps = {
-  children: ReactNode;
-};
-
-type StoryImageProps = {
-  src: string;
-};
-
 const SectionThree = memo(() => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [isFirst, setIsFirst] = useState<boolean>(true);
+  const [clickAble, setClickAble] = useState<boolean>(true);
   const [buttonAnimation, setButtonAnimation] = useState<ButtonAnimation>({
     top: false,
     bottom: false,
@@ -33,25 +28,33 @@ const SectionThree = memo(() => {
   const [minIndex, maxIndex] = useMemo(() => [0, 10], []);
 
   const pressNext = useCallback(() => {
-    if (currentIndex < maxIndex) {
-      setCurrentIndex(currentIndex + 1);
-      setIsFirst(false);
-    }
+    if (clickAble) {
+      if (currentIndex < maxIndex) {
+        setCurrentIndex(currentIndex + 1);
+        setIsFirst(false);
+      }
 
-    setButtonAnimation((state: ButtonAnimation) => ({
-      ...state,
-      bottom: true,
-    }));
-  }, [maxIndex, currentIndex]);
+      setClickAble(false);
+
+      setButtonAnimation((state: ButtonAnimation) => ({
+        ...state,
+        bottom: true,
+      }));
+    }
+  }, [maxIndex, currentIndex, clickAble]);
 
   const pressPrevious = useCallback(() => {
-    if (currentIndex > minIndex) setCurrentIndex(currentIndex - 1);
+    if (clickAble) {
+      if (currentIndex > minIndex) setCurrentIndex(currentIndex - 1);
 
-    setButtonAnimation((state: ButtonAnimation) => ({
-      ...state,
-      top: true,
-    }));
-  }, [minIndex, currentIndex]);
+      setClickAble(false);
+
+      setButtonAnimation((state: ButtonAnimation) => ({
+        ...state,
+        top: true,
+      }));
+    }
+  }, [minIndex, currentIndex, clickAble]);
 
   useEffect(() => {
     let bottomTimeout: NodeJS.Timeout | undefined = undefined;
@@ -81,6 +84,15 @@ const SectionThree = memo(() => {
       clearTimeout(topTimeout);
     };
   }, [buttonAnimation]);
+
+  useEffect(() => {
+    let timeout: NodeJS.Timeout | undefined = undefined;
+    if (!clickAble) {
+      timeout = setTimeout(() => setClickAble(true), 1500);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [clickAble]);
 
   return (
     <section
@@ -224,57 +236,6 @@ const SectionThree = memo(() => {
     </section>
   );
 });
-
-const StoryText = memo(({ children }: StoryTextProps) => {
-  return (
-    <p
-      className={_clsx("text-center text-[24px] md:text-[30px] mx-[20px]", CarattereText.className, styles.story_text)}
-    >
-      {children}
-    </p>
-  );
-});
-
-const StoryImage = memo(({ src }: StoryImageProps) => {
-  return (
-    <Image
-      className="w-[90%] max-w-[320px] aspect-square rounded-md mb-[30px] lg:mb-0 mt-[-50px] lg:mt-0 bg-white"
-      src={src}
-      alt=""
-      width={350}
-      height={350}
-      placeholder="blur"
-      blurDataURL={BLUR_URL}
-      style={{
-        objectFit: "contain",
-      }}
-    />
-  );
-});
-
-const Points = memo(({ index, maxIndex }: Readonly<{ index: number; maxIndex: number }>) => {
-  return (
-    <div className="absolute right-[5px] top-[50%] -translate-y-[50%] grid gap-[8px]">
-      {Array(maxIndex + 1)
-        .fill(0)
-        .map((_, _index) => (
-          <div
-            key={_index}
-            className={_clsx(
-              "h-[10px] w-[8px] rounded-[4px] bg-[#5c5c44] opacity-30",
-              _index === index && "!opacity-100",
-            )}
-          />
-        ))}
-    </div>
-  );
-});
-
-Points.displayName = "Points";
-
-StoryText.displayName = "StoryText";
-
-StoryImage.displayName = "StoryImage";
 
 SectionThree.displayName = "SectionThree";
 

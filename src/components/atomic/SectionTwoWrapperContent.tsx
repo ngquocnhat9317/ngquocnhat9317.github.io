@@ -1,4 +1,4 @@
-import { ReactNode, useMemo } from "react";
+import { ReactNode, memo, useMemo } from "react";
 
 import styles from "@/styles/SectionThree.module.scss";
 import { _clsx } from "@/utilities/common";
@@ -9,7 +9,12 @@ type Props = {
   children: ReactNode;
 };
 
-function SectionTwoWrapperContent({ index, currentIndex, ...props }: Readonly<Props>) {
+const SectionTwoWrapperContent = memo(({ index, currentIndex, ...props }: Readonly<Props>) => {
+  const isShow = useMemo(() => {
+    if (currentIndex >= index - 1 && currentIndex <= index + 1) return true;
+    return false;
+  }, [index, currentIndex]);
+
   const topCss: string = useMemo(() => {
     if (index > currentIndex) return "top-[100%] opacity-0";
     if (index < currentIndex) return "top-[-100%] opacity-0";
@@ -26,9 +31,11 @@ function SectionTwoWrapperContent({ index, currentIndex, ...props }: Readonly<Pr
         styles.wrapper_content,
       )}
     >
-      {props.children}
+      {isShow ? props.children : null}
     </div>
   );
-}
+});
+
+SectionTwoWrapperContent.displayName = "SectionTwoWrapperContent";
 
 export default SectionTwoWrapperContent;
